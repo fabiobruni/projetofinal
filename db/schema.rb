@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_233031) do
+ActiveRecord::Schema.define(version: 2020_09_30_195328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "evaluations", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "translated_text_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["translated_text_id"], name: "index_evaluations_on_translated_text_id"
+    t.index ["user_id"], name: "index_evaluations_on_user_id"
+  end
+
+  create_table "submitted_texts", force: :cascade do |t|
+    t.string "url"
+    t.string "institution"
+    t.date "deadline"
+    t.string "service_title"
+    t.text "service"
+    t.integer "target_public"
+    t.text "service_stages"
+    t.text "more_info"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_submitted_texts_on_user_id"
+  end
+
+  create_table "translated_texts", force: :cascade do |t|
+    t.string "url"
+    t.string "institution"
+    t.date "deadline"
+    t.string "service_title"
+    t.text "service"
+    t.integer "target_public"
+    t.text "service_stages"
+    t.text "more_info"
+    t.bigint "user_id", null: false
+    t.bigint "submitted_text_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["submitted_text_id"], name: "index_translated_texts_on_submitted_text_id"
+    t.index ["user_id"], name: "index_translated_texts_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +65,14 @@ ActiveRecord::Schema.define(version: 2020_09_29_233031) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.boolean "is_writer"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "evaluations", "translated_texts"
+  add_foreign_key "evaluations", "users"
+  add_foreign_key "translated_texts", "submitted_texts"
+  add_foreign_key "translated_texts", "users"
 end
