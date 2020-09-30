@@ -10,7 +10,7 @@ class CreateTranslatedTexts < ActiveRecord::Migration[6.0]
       t.text :service_stages
       t.text :more_info
       t.references :user, null: false, foreign_key: true
-      t.references :submitted_texts, null: false, foreign_key: true
+      t.references :submitted_text, null: false, foreign_key: true
 
       t.timestamps
     end
