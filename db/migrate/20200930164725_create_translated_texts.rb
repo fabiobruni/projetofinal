@@ -3,7 +3,7 @@ class CreateTranslatedTexts < ActiveRecord::Migration[6.0]
     create_table :translated_texts do |t|
       t.string :url
       t.string :instituction
-      t.date :deadline
+      t.boolean :choosen_translat
       t.string :service_title
       t.text :service
       t.integer :target_public
