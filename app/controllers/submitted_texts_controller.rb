@@ -1,8 +1,8 @@
 class SubmittedTextsController < ApplicationController
   before_action :set_text, only: [:destroy]
-   
+
   skip_before_action :authenticate_user!, only: :show
- 
+
   # GET /submitted_texts
   def index
     @submitted = SubmittedText.all
