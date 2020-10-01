@@ -1,0 +1,2 @@
+class SubmittedTextsController < ApplicationController
+end
