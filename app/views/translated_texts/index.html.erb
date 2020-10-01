@@ -1,0 +1,21 @@
+<div class="container">
+  <p>Hello, teste</p>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div id="translated">
+      <%= form_tag translated_texts_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a text"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+        <% @translated.each do |translated| %>
+          <h2><%= translated.service_title %></h2>
+          <h3><%= translated.service %></h3>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div

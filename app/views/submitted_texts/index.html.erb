@@ -1,12 +1,25 @@
-<p>Hello, teste</p>
 
-<% @submitted.each do |submitted| %>
-  <h2><%= submitted.service_title %></h2>
-  <h3><%= submitted.service %></h3>
-  <h4><%= submitted.deadline %></h4>
-
-  <%= link_to 'Apagar', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar esta solicitação?' } %>
-<%end%>
-
-<%= link_to 'Solicitar tradução', new_submitted_text_path %>
-
+<div class="container">
+  <p>Hello, teste</p>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div id="submitted">
+      <%= form_tag submitted_texts_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a text"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+        <% @submitted.each do |submitted| %>
+          <h2><%= submitted.service_title %></h2>
+          <h3><%= submitted.service %></h3>
+          <h4><%= submitted.deadline %></h4>
+          <%= link_to 'Apagar', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar esta solicitação?' } %>
+          <%= link_to 'Solicitar tradução', new_submitted_text_path %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div

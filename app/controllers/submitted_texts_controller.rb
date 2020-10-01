@@ -1,4 +1,5 @@
 class SubmittedTextsController < ApplicationController
+ 
   before_action :set_submitted, only: [:destroy]
 
   skip_before_action :authenticate_user!, only: :show
@@ -22,6 +23,7 @@ class SubmittedTextsController < ApplicationController
       render :new
     end
   end
+
 
   def show
     @text = SubmittedText.find(params[:id])
