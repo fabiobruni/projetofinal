@@ -1,0 +1,2 @@
+class TranslatedTextsController < ApplicationController
+end
