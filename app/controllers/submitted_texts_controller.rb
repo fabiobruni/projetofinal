@@ -2,7 +2,7 @@ class SubmittedTextsController < ApplicationController
 
   # GET /submitted_texts
   def index
-    @submitted_texts = SubmittedText.all
+    @submitted = SubmittedText.all
   end
 
 end
