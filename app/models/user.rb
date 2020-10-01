@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :submitted_texts, dependent: :destroy
   has_many :translated_texts
   has_many :evaluations
+  validates :name, presence: true
 end
