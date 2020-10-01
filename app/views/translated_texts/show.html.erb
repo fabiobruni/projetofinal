@@ -1,52 +1,60 @@
+<script>
+document.getElementById("service").addEventListener("click", CampServ(), false);
+
+  function CampServ() {
+  <%@original.service = @review.service%>;
+  <%@original.save%>;
+  };
+
+  document.getElementById("public").addEventListener("click", CampPublic(), false);
+
+  function CampPublic() {
+  <%@original.target_public = @review.target_public%>;
+  <%@original.save%>;
+  };
+</script>
+
 <h1><%=@review.service_title%></h1>
 <br>
 <h3>O que é?</h3>
 <div>
   <%=@review.service%>
-  <%if user_signed_in? && current_user.id == @review.submitted_text_id.user.id %>
-    <button>Acatar Sugestão</button>
+  <%if user_signed_in? && current_user.id == @review.submitted_text.user.id %>
+    <button id="service">Acatar Sugestão</button>
   <%end%>
 </div>
 
 <h3>Quem pode utilizar o serviço?</h3>
 <div>
   <%=@review.target_public%>
-    <%if user_signed_in? && current_user.id == @review.submitted_text_id.user.id %>
-      <button>Acatar Sugestão</button>
+  <%if user_signed_in? && current_user.id == @review.submitted_text.user.id %>
+    <button id="public">Acatar Sugestão</button>
     <%end%>
 </div>
 
 <h3>Etapas do Serviço</h3>
 <div>
   <%=@review.service_stages%>
-  <%if user_signed_in? && current_user.id == @review.submitted_text_id.user.id %>
-    <button>Acatar Sugestão</button>
+  <%if user_signed_in? && current_user.id == @review.submitted_text.user.id %>
+  <button id="camp3">Acatar Sugestão</button>
   <%end%>
 </div>
 
 <h3>Mais Informações</h3>
 <div>
   <%=@review.more_info%>
-  <%if user_signed_in? && current_user.id == @review.submitted_text_id.user.id %>
-    <button>Acatar Sugestão</button>
+  <%if user_signed_in? && current_user.id == @review.submitted_text.user.id %>
+  <button id="camp4">Acatar Sugestão</button>
   <%end%>
 </div>
 
-<%if user_signed_in?%>
-  <a class="btn btn-primary" href="#">Avaliar Sugestão</a>
+<%if @evaluations != nil%>
+<h2>Avaliações da sugestão</h2>
+<%@evaluations.each do |evaluation|%>
+<%=evaluation.stars%>
+<%=evaluation.content%>
+<%end%>
 <%end%>
 
- <%= simple_form_for(@instrument) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :description, input_html: {id: "txt-camp"} %>
-    <label class="photobtn">
-      Upload Instrument photo
-      <span style="display:none;">
-        <%= f.file_field :photo%>
-      </span>
-    </label>
-    <br>
-    <br>
-    <%= f.submit "Submit", :class => "photobtn main_button" %>
-  <% end %>
+
+

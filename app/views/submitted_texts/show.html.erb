@@ -32,7 +32,9 @@
 <%if @reviews != nil%>
 <h2>Revisões sugeridas</h2>
 <%@reviews.each do |review|%>
-  <a href="#"><h4><%=@review.user_id.name%></h4>
-  <p><%%=@review.service%></p></a>
+  <a href=<%="#{@text.id}/translated_texts/#{review.id}"%>>
+  <h4><%=review.user.email%></h4>
+  <p><%=review.service%></p>
+</a>
   <%end%>
 <%end%>
