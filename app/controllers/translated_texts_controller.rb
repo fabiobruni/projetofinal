@@ -1,4 +1,5 @@
 class TranslatedTextsController < ApplicationController
+    
   def show
     @review = TranslatedText.find(params[:id])
     @evaluation = Evaluation.new
@@ -6,5 +7,9 @@ class TranslatedTextsController < ApplicationController
       @evaluations = Evaluation.all.select { |evaluation| evaluation.translated_text_id }
     end
     @original = SubmittedText.find(@review.submitted_text_id)
+  end
+
+  def index
+    @translated = TranslatedText.all
   end
 end
