@@ -10,8 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
 ActiveRecord::Schema.define(version: 2020_10_01_151516) do
 
   # These are extensions that must be enabled in order to support this database
@@ -47,10 +45,6 @@ ActiveRecord::Schema.define(version: 2020_10_01_151516) do
   create_table "translated_texts", force: :cascade do |t|
     t.string "url"
     t.string "institution"
-    t.boolean "choosen_translat"
-    t.string "service_title"
-    t.text "service"
-    t.integer "target_public"
     t.boolean "choosen_translat"
     t.string "service_title"
     t.text "service"

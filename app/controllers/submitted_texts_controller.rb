@@ -4,6 +4,18 @@ class SubmittedTextsController < ApplicationController
   def index
     @submitted = SubmittedText.all
   end
+
+  def new
+    @submitted = SubmittedText.new
+  end
+
+
+
+
+
+
+
+
   def show
     @text = SubmittedText.find(params[:id])
     if TranslatedText.all.select { |translation| translation.submitted_text_id == @text.id}.size > 0
