@@ -1,3 +1,4 @@
+
 <%if user_signed_in?%>
   <%if current_user.id == @text.user.id %>
     <a class="btn btn-primary" href="#">Editar texto</a>
@@ -14,3 +15,57 @@
   <p><%%=@review.service%></p></a>
   <%end%>
 <%end%>
+
+<h1><%=@review.service_title%></h1>
+<br>
+<h3>O que é?</h3>
+<div>
+  <%=@review.service%>
+  <%if user_signed_in? && current_user.id == @review.submitted_text_id.user.id %>
+    <button>Acatar Sugestão</button>
+  <%end%>
+</div>
+
+<h3>Quem pode utilizar o serviço?</h3>
+<div>
+  <%=@review.target_public%>
+    <%if user_signed_in? && current_user.id == @review.submitted_text_id.user.id %>
+      <button>Acatar Sugestão</button>
+    <%end%>
+</div>
+
+<h3>Etapas do Serviço</h3>
+<div>
+  <%=@review.service_stages%>
+  <%if user_signed_in? && current_user.id == @review.submitted_text_id.user.id %>
+    <button>Acatar Sugestão</button>
+  <%end%>
+</div>
+
+<h3>Mais Informações</h3>
+<div>
+  <%=@review.more_info%>
+  <%if user_signed_in? && current_user.id == @review.submitted_text_id.user.id %>
+    <button>Acatar Sugestão</button>
+  <%end%>
+</div>
+
+<%if user_signed_in?%>
+  <a class="btn btn-primary" href="#">Avaliar Sugestão</a>
+<%end%>
+
+ <%= simple_form_for(@instrument) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :description, input_html: {id: "txt-camp"} %>
+    <label class="photobtn">
+      Upload Instrument photo
+      <span style="display:none;">
+        <%= f.file_field :photo%>
+      </span>
+    </label>
+    <br>
+    <br>
+    <%= f.submit "Submit", :class => "photobtn main_button" %>
+  <% end %>
+
