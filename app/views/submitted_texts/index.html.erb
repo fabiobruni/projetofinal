@@ -4,5 +4,9 @@
   <h2><%= submitted.service_title %></h2>
   <h3><%= submitted.service %></h3>
   <h4><%= submitted.deadline %></h4>
+
   <%= link_to 'Apagar', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar esta solicitação?' } %>
 <%end%>
+
+<%= link_to 'Solicitar tradução', new_submitted_text_path %>
+
