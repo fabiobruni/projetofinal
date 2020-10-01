@@ -1,5 +1,8 @@
 class SubmittedTextsController < ApplicationController
-   skip_before_action :authenticate_user!, only: :show
+  before_action :set_submitted, only: [:destroy]
+
+  skip_before_action :authenticate_user!, only: :show
+
   # GET /submitted_texts
   def index
     @submitted = SubmittedText.all
@@ -20,13 +23,6 @@ class SubmittedTextsController < ApplicationController
     end
   end
 
-
-
-
-
-
-
-
   def show
     @text = SubmittedText.find(params[:id])
     if TranslatedText.all.select { |translation| translation.submitted_text_id == @text.id}.size > 0
@@ -34,8 +30,16 @@ class SubmittedTextsController < ApplicationController
     end
   end
 
-private
 
+  # DELETE /submitted_texts/1
+  def destroy
+    @submitted.destroy
+    redirect_to submitted_texts_url, notice: 'Pronto, seu texto foi apagado.'
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  
   def set_submitted
     @submitted = Submitted.find(params[:id])
   end
@@ -43,4 +47,5 @@ private
   def submitted_params
     params.require(:submitted_text).permit(:url, :institution, :deadline, :service_title, :service, :target_public, :service_stages, :more_info)
   end
+
 end
