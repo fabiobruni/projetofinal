@@ -3,5 +3,5 @@ class ChangeTargetPublicColumnsSubmittedAndTranslated < ActiveRecord::Migration[
     change_column :submitted_texts, :target_public, :text
     change_column :translated_texts, :target_public, :text
     add_column :submitted_texts, :potential_public, :integer
-    add_column :translated_texts, :potential_public, :intege  end
+    add_column :translated_texts, :potential_public, :integer  end
 end
