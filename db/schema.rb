@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2020_09_30_195328) do
+=======
 ActiveRecord::Schema.define(version: 2020_10_01_151516) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +25,10 @@ ActiveRecord::Schema.define(version: 2020_10_01_151516) do
     t.bigint "translated_text_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
+=======
     t.integer "stars"
+>>>>>>> master
     t.index ["translated_text_id"], name: "index_evaluations_on_translated_text_id"
     t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
@@ -32,30 +39,47 @@ ActiveRecord::Schema.define(version: 2020_10_01_151516) do
     t.date "deadline"
     t.string "service_title"
     t.text "service"
+<<<<<<< HEAD
+    t.integer "target_public"
+=======
     t.text "target_public"
+>>>>>>> master
     t.text "service_stages"
     t.text "more_info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+<<<<<<< HEAD
+=======
     t.integer "potential_public"
+>>>>>>> master
     t.index ["user_id"], name: "index_submitted_texts_on_user_id"
   end
 
   create_table "translated_texts", force: :cascade do |t|
     t.string "url"
     t.string "institution"
+<<<<<<< HEAD
+    t.date "deadline"
+    t.string "service_title"
+    t.text "service"
+    t.integer "target_public"
+=======
     t.boolean "choosen_translat"
     t.string "service_title"
     t.text "service"
     t.text "target_public"
+>>>>>>> master
     t.text "service_stages"
     t.text "more_info"
     t.bigint "user_id", null: false
     t.bigint "submitted_text_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
+=======
     t.integer "potential_public"
+>>>>>>> master
     t.index ["submitted_text_id"], name: "index_translated_texts_on_submitted_text_id"
     t.index ["user_id"], name: "index_translated_texts_on_user_id"
   end
