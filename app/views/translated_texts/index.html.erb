@@ -2,8 +2,8 @@
   <p>Hello, teste</p>
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
-      <div id="submitted">
-      <%= form_tag submitted_texts_path, method: :get do %>
+      <div id="translated">
+      <%= form_tag translated_texts_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
@@ -11,10 +11,9 @@
         %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
-        <% @submitted.each do |submitted| %>
-          <h2><%= submitted.service_title %></h2>
-          <h3><%= submitted.service %></h3>
-          <h4><%= submitted.deadline %></h4>
+        <% @translated.each do |translated| %>
+          <h2><%= translated.service_title %></h2>
+          <h3><%= translated.service %></h3>
         <%end%>
       </div>
     </div>

@@ -28,11 +28,21 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+#User authentication manager
 gem 'devise'
 
+#Enhanced search features
+gem 'pg_search', '~> 2.3.0'
+
+#Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website
 gem 'autoprefixer-rails'
+
+#Icons turned in fonts
 gem 'font-awesome-sass'
+
+#Form creation helper
 gem 'simple_form'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

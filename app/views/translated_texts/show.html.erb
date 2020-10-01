@@ -1,0 +1,16 @@
+<%if user_signed_in?%>
+  <%if current_user.id == @text.user.id %>
+    <a class="btn btn-primary" href="#">Editar texto</a>
+  <%else%>
+    <a class="btn btn-primary" href="#">Sugerir revisão</a>
+  <%end%>
+<%end%>
+
+
+<%if @reviews != nil%>
+<h2>Revisões sugeridas</h2>
+<%@reviews.each do |review|%>
+  <a href="#"><h4><%=@review.user_id.name%></h4>
+  <p><%%=@review.service%></p></a>
+  <%end%>
+<%end%>
