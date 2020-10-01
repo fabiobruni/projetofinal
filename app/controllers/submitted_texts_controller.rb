@@ -1,5 +1,5 @@
 class SubmittedTextsController < ApplicationController
- 
+
   before_action :set_submitted, only: [:destroy]
 
   skip_before_action :authenticate_user!, only: :show
@@ -41,9 +41,9 @@ class SubmittedTextsController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  
+
   def set_submitted
-    @submitted = Submitted.find(params[:id])
+    @submitted = SubmittedText.find(params[:id])
   end
 
   def submitted_params
