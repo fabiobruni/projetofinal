@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_184216) do
   create_table "translated_texts", force: :cascade do |t|
     t.string "url"
     t.string "institution"
-    t.boolean "choosen_translat"
+    t.date "deadline"
     t.string "service_title"
     t.text "service"
     t.text "target_public"
