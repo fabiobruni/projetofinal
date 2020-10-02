@@ -1,4 +1,5 @@
 class TranslatedTextsController < ApplicationController
+  before_action :set_translated, only: [:destroy]
 
   def show
     @review = TranslatedText.find(params[:id])
@@ -12,4 +13,24 @@ class TranslatedTextsController < ApplicationController
   def index
     @translated = TranslatedText.all
   end
+
+  def destroy
+    @translated.destroy
+    redirect_to translated_texts, notice: 'Pronto, sua sugestão de tradução foi apagada.'
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+
+  def set_translated
+    @translated = TranslatedText.find(params[:id])
+  end
+
+  def translated_params
+    params.require(:translated_text).permit(:url, :institution, :choosen_translat, :service_title, :service, :target_public, :service_stages, :more_info)
+  end
+
+
+
+
 end
