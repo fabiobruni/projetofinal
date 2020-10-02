@@ -1,4 +1,5 @@
 class TranslatedTextsController < ApplicationController
+  before_action :set_translated, only: [:destroy]
    skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_submitted, only: [:new, :create]
 
@@ -33,6 +34,11 @@ class TranslatedTextsController < ApplicationController
     @original = SubmittedText.find(@review.submitted_text_id)
   end
 
+  def destroy
+    @translated.destroy
+    redirect_to translated_texts, notice: 'Pronto, sua sugestão de tradução foi apagada.'
+  end
+
  
 
   private
@@ -44,4 +50,8 @@ class TranslatedTextsController < ApplicationController
     params.require(:translated_text).permit(:service_title, :service, :target_public, :service_stages, :more_info)
   end
 
-end
+   def set_translated
+    @translated = TranslatedText.find(params[:id])
+  end
+
+ end
