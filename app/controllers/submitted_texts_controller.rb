@@ -6,7 +6,12 @@ class SubmittedTextsController < ApplicationController
 
   # GET /submitted_texts
   def index
-    @submitted = SubmittedText.all
+    @submitteds = []
+    if params[:query].present?
+      @submitteds = SubmittedText.search_by_multiple_fields(params[:query])
+    else
+      @submitteds = SubmittedText.all
+    end
   end
 
   def new
