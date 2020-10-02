@@ -1,4 +1,5 @@
 class TranslatedTextsController < ApplicationController
+   skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_submitted, only: [:new, :create]
 
   def index
@@ -22,7 +23,7 @@ class TranslatedTextsController < ApplicationController
       render :new
     end
   end
-
+  
   def show
     @review = TranslatedText.find(params[:id])
     @evaluation = Evaluation.new
