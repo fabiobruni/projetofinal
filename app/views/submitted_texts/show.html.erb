@@ -21,6 +21,20 @@
 </div>
 
 <%if user_signed_in?%>
+  <p>
+    <%= link_to 'Revise este texto', new_submitted_text_translated_text_path(@text) %>
+  </p>
+
+  <% if  @text.translated_texts.count.zero? %>
+    <p>
+      Seja o primeiro a revisar este texto
+
+    </p>
+  <% end %>
+
+<% end %>
+
+<%if user_signed_in?%>
   <%if current_user.id == @text.user.id %>
     <a class="btn btn-primary" href="#">Editar texto</a>
   <%else%>
