@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   
   resources :submitted_texts, only: [ :index, :edit, :new, :create, :destroy, :show ] do
-    resources :translated_texts, only: [ :index, :new, :edit, :update , :show] do
+    resources :translated_texts, only: [ :index, :new, :create, :edit, :update , :show] do
       resources :evaluations, only: [ :new, :show, :edit, :update ]
     end
   end
