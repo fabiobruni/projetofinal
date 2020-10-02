@@ -1,0 +1,10 @@
+<h1>Avaliacao da tradução <%= @translated.title %></h1>
+
+<%= simple_form_for [@translated, @evaluation] do |f|%>
+
+  <%= f.input :content %>
+  <%= f.input :stars %>
+
+  <%= f.submit "Enviar", class: 'btn btn-primary' %>
+
+<% end %>
