@@ -1,1 +1,10 @@
-aaaa
+<h1>Texto a ser traduzido</h1>
+
+<%= simple_form_for ([@submitted, @translated]) do |f| %>
+  <%= f.input :service_title, label: 'Nome do serviço:'%>
+  <%= f.input :service, label: 'Serviço:'%>
+  <%= f.input :target_public, label: 'Público alvo:'%>
+  <%= f.input :service_stages, label: 'Etapas do serviço:' %>
+  <%= f.input :more_info, label: 'Mais informações:' %>
+  <%= f.submit "Enviar minha sugestão de revisão", :class => "photobtn main_button" %>
+<% end %>

@@ -12,7 +12,9 @@ class TranslatedTextsController < ApplicationController
 
   def create
     @translated = TranslatedText.new(translated_params)
-    @translated.service_title = @submitted
+    @translated.submitted_text = @submitted
+    @translated.user = current_user
+ 
 
     if @translated.save
       redirect_to submitted_text_path(@submitted)
