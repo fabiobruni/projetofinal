@@ -1,5 +1,5 @@
 class TranslatedTextsController < ApplicationController
-    
+
   def show
     @review = TranslatedText.find(params[:id])
     @evaluation = Evaluation.new
