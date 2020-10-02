@@ -8,7 +8,7 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Econtre um texto"
+          placeholder: "Encontre um texto"
         %>
         <%= submit_tag "Procurar texto", class: "btn btn-primary" %>
       <% end %>
@@ -16,12 +16,13 @@
           <h2><%= submitted.service_title %></h2>
           <h3><%= submitted.service %></h3>
           <h4><%= submitted.deadline %></h4>
+          <%= link_to 'Veja o texto completo', submitted %>
           <%= link_to 'Apagar', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar esta solicitação?' } %>
 
         <%end%>
 
       </div>
-    <%= link_to 'Solicitar tradução', new_submitted_text_path %>
+    <%= link_to 'Quero  submeter um texto', new_submitted_text_path %>
     </div>
   </div>
 </div

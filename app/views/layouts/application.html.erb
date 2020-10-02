@@ -182,5 +182,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <%= render 'shared/flashes' %>
 
     <%= yield %>
+
+    <p>Now is <%= Time.now %><p>
+    <p>A very simple footer</p>
+    
+    <%= link_to "Exemplos", example_path %>
   </body>
 </html>
