@@ -1,4 +1,5 @@
 class TranslatedTextsController < ApplicationController
+   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def show
     @review = TranslatedText.find(params[:id])
