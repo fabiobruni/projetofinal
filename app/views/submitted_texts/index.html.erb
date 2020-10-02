@@ -8,11 +8,11 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Find a text"
+          placeholder: "Econtre um texto"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Procurar texto", class: "btn btn-primary" %>
       <% end %>
-        <% @submitted.each do |submitted| %>
+        <% @submitteds.each do |submitted| %>
           <h2><%= submitted.service_title %></h2>
           <h3><%= submitted.service %></h3>
           <h4><%= submitted.deadline %></h4>
