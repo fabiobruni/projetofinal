@@ -46,6 +46,8 @@
 <%@original.more_info = @review.more_info%>;
 <%@original.save%>">Salvar</button></a>
 
+<%= link_to 'Apagar sugestão', @translated, method: :delete, data: { confirm: 'Tem certeza que quer excluir?' } %>
+
 <%if @evaluations != nil%>
 <h2>Avaliações da sugestão</h2>
 <%@evaluations.each do |evaluation|%>

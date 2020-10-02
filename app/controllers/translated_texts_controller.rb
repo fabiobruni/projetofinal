@@ -16,7 +16,7 @@ class TranslatedTextsController < ApplicationController
     @translated = TranslatedText.new(translated_params)
     @translated.submitted_text = @submitted
     @translated.user = current_user
- 
+
 
     if @translated.save
       redirect_to submitted_text_path(@submitted)
@@ -24,7 +24,7 @@ class TranslatedTextsController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     @review = TranslatedText.find(params[:id])
     @evaluation = Evaluation.new
@@ -36,10 +36,10 @@ class TranslatedTextsController < ApplicationController
 
   def destroy
     @translated.destroy
-    redirect_to translated_texts, notice: 'Pronto, sua sugestão de tradução foi apagada.'
+    redirect_to submitted_texts_path, notice: 'Pronto, sua sugestão de tradução foi apagada.'
   end
 
- 
+
 
   private
   def set_submitted
