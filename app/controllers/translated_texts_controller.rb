@@ -34,11 +34,11 @@ class TranslatedTextsController < ApplicationController
 
   private
   def set_submitted
-    @submitted = SubmittedText.find(params[:id])
+    @submitted = SubmittedText.find(params[:submitted_text_id])
   end
 
   def translated_params
-    params.require(:translated_text).permit(:url, :institution, :deadline, :service_title, :service, :target_public, :service_stages, :more_info)
+    params.require(:translated_text).permit(:service_title, :service, :target_public, :service_stages, :more_info)
   end
 
 end
