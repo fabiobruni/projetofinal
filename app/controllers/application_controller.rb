@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   skip_before_action :authenticate_user!, only: [:home, :index, :show]
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation, :photo])
   end
 
 end

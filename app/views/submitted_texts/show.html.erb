@@ -20,7 +20,7 @@
   <%=@text.more_info%>
 </div>
 
-<%if user_signed_in?%>
+<%if user_signed_in? && current_user.id != @text.id%>
   <p>
     <%= link_to 'Revise este texto', new_submitted_text_translated_text_path(@text) %>
   </p>
