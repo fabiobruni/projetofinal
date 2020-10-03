@@ -40,11 +40,13 @@
   <div><%=@review.more_info%></div>
 <%end%>
 
-<a href="<%="/submitted_texts/#{@original.id}"%>"><button onclick="<%@original.service = @review.service%>;
-<%@original.target_public = @review.target_public%>;
-<%@original.service_stages = @review.service_stages%>;
-<%@original.more_info = @review.more_info%>;
-<%@original.save%>">Salvar</button></a>
+<%if current_user.id == @review.submitted_text.user_id%>
+  <a href="<%="/submitted_texts/#{@original.id}"%>"><button onclick="<%@original.service = @review.service%>;
+  <%@original.target_public = @review.target_public%>;
+  <%@original.service_stages = @review.service_stages%>;
+  <%@original.more_info = @review.more_info%>;
+  <%@original.save%>">Acatar Sugestão</button></a>
+<%end%>
 
 <%if @evaluations != nil%>
 <h2>Avaliações da sugestão</h2>
