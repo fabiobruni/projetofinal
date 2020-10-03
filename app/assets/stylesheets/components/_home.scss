@@ -9,11 +9,19 @@ h1, h2, h3, h4, h5, h6{
   }
 }
 
+h1{
+  color:#0D326F;
+  margin-bottom:50px;
+}
+
 i{
   color:#0c326f;
   font-size:30px !important;
   text-align:center !important;
-  margin:auto;
+  margin:5px auto;
+  // position:absolute;
+  // top:0px;
+  // left:40%;
 }
 
 .links{
@@ -44,4 +52,6 @@ text-align: center;
   flex-direction:row;
   text-align:center;
   justify-content:center;
+  margin-top:60px;
+  margin-bottom:60px;
 }

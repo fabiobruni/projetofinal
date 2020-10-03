@@ -1,0 +1,18 @@
+<%= javascript_include_tag Ckeditor.cdn_url%>
+<h1 style="margin-bottom:0px"><%= @text.service_title%></h1>
+<h3><%= @text.institution%></h3>
+<h6><a href="<%=@text.url%>">Página do serviço no gov.br</a></h6>
+
+<%= simple_form_for @text do |f| %>
+<h5 class="formlabel">O que é?</h5>
+  <%= f.input :service, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @text.service.html_safe%>
+<h5 class="formlabel">Quem pode utilizar o serviço?</h5>
+  <%= f.input :target_public, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @text.target_public.html_safe%>
+<h5 class="formlabel">Etapas do Serviço</h5>
+  <%= f.input :service_stages, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @text.service_stages.html_safe%>
+<h5 class="formlabel">Outras Informações</h5>
+  <%= f.input :more_info, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @text.more_info.html_safe%>
+<h5 class="formlabel">Sugestões podem ser feitas até:</h5>
+  <%= f.input :deadline, label: false, as: :date, html5: true, value:@text.deadline%>
+  <%= f.submit "Salvar", :class => "photobtn main_button", method: :update, class: 'src' %>
+<%end%>

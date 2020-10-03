@@ -2,42 +2,42 @@
 <br>
 <h3>O que é?</h3>
   <%if @review.service == @original.service%>
-    <div style="opacity:0.3"><%=@original.service%></div>
+    <div style="opacity:0.3"><%=@original.service.html_safe%></div>
   <%elsif @review.service == ""%>
     <%@review.service = @original.service%>
-    <div style="opacity:0.3"><%=@original.service%></div>
+    <div style="opacity:0.3"><%=@original.service.html_safe%></div>
   <%else%>
-  <div><%=@review.service%></div>
+  <div><%=@review.service.html_safe%></div>
 <%end%>
 
 <h3>Quem pode utilizar o serviço?</h3>
  <%if @review.target_public == @original.target_public%>
-    <div style="opacity:0.3"><%=@original.target_public%></div>
+    <div style="opacity:0.3"><%=@original.target_public.html_safe%></div>
   <%elsif @review.target_public == ""%>
     <%@review.target_public = @original.target_public%>
-    <div style="opacity:0.3"><%=@original.target_public%></div>
+    <div style="opacity:0.3"><%=@original.target_public.html_safe%></div>
   <%else%>
-  <div><%=@review.target_public%></div>
+  <div><%=@review.target_public.html_safe%></div>
 <%end%>
 
 <h3>Etapas do Serviço</h3>
 <%if @review.service_stages == @original.service_stages%>
-    <div style="opacity:0.3"><%=@original.service_stages%></div>
+    <div style="opacity:0.3"><%=@original.service_stages.html_safe%></div>
   <%elsif @review.service_stages == ""%>
     <%@review.service_stages = @original.service_stages%>
-    <div style="opacity:0.3"><%=@original.service_stages%></div>
+    <div style="opacity:0.3"><%=@original.service_stages.html_safe%></div>
   <%else%>
-  <div><%=@review.service_stages%></div>
+  <div><%=@review.service_stages.html_safe%></div>
 <%end%>
 
 <h3>Mais Informações</h3>
 <%if @review.more_info == @original.more_info%>
-    <div style="opacity:0.3"><%=@original.more_info%></div>
+    <div style="opacity:0.3"><%=@original.more_info.html_safe%></div>
   <%elsif @review.more_info == ""%>
     <%@review.more_info = @original.more_info%>
-    <div style="opacity:0.3"><%=@original.more_info%></div>
+    <div style="opacity:0.3"><%=@original.more_info.html_safe%></div>
   <%else%>
-  <div><%=@review.more_info%></div>
+  <div><%=@review.more_info.html_safe%></div>
 <%end%>
 
 <%if current_user.id == @review.submitted_text.user_id%>

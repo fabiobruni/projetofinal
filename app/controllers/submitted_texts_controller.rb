@@ -29,6 +29,15 @@ class SubmittedTextsController < ApplicationController
     end
   end
 
+  def edit
+    @text = SubmittedText.find(params[:id])
+  end
+
+  def update
+    set_submitted
+    @submitted.update(submitted_params)
+    redirect_to submitted_texts_path(@submitted)
+  end
 
   def show
     @text = SubmittedText.find(params[:id])

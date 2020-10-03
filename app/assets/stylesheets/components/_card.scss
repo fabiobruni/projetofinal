@@ -1,8 +1,39 @@
 .card{
+  background-color:#F8F8F8;
   text-align:center;
-  height:250px;
+  height:280px;
   margin:auto;
-  padding:15px 7px;
+  padding:10px 7px;
   border:1px solid rgb(240,240,240);
-  box-shadow:2px 3px rgb(220,220,220)
+  box-shadow:1px 2px rgb(220,220,220);
+  p{
+    font-size:12px;
+    color:#555555;
+    margin:5px;
+  }
+
+  h5{
+    color:#0D326F;
+    margin-bottom:0px;
+  }
+
+  h6{
+    color:#555555;
+  }
+
+  .bluelink{
+    color:#0D326F;
+  }
+
+  .redlink{
+    color:#6a040f;
+  }
+}
+
+.cardcontent{
+  height:240px;
+}
+
+.cardlinks{
+  height:40px;
 }

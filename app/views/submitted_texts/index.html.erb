@@ -1,10 +1,13 @@
+<div class="banner">
+  <%if user_signed_in?%>
+    <h1>Olá <span style="color:white;font-weight:800"><%="#{current_user.name}"%></span>, bem vindo!</h1>
+  <%else%>
+    <h1>Olá visitante!</h1>
+  <%end%>
+</div>
 <div class="container">
   <br>
-  <%if user_signed_in?%>
-    <p>Olá <span style="color:#0c326f;font-weight:800"><%="#{current_user.name}"%></span>, bem vindo!</p>
-  <%else%>
-    <p>Olá visitante,</p>
-  <%end%>
+  <h1>Textos postados</h1>
   <div class="row">
     <div class="col-sm-10 offset-sm-1">
       <div id="submitted">
@@ -14,15 +17,19 @@
           <div class="col-3">
             <div class="card">
             <i class='fas fa-file-alt'></i>
+            <div class="cardcontent">
           <h6>Sugestões até: <span style="color:#0c326f"><%= submitted.deadline.strftime("%d/%m/%Y")%></span></h6>
-          <h3><%= submitted.service_title %></h3>
-          <h5><%= submitted.service %></h5>
-          <h6><%= link_to 'Veja o texto completo', submitted %></h6>
+          <h5><%= submitted.service_title.truncate_words(10) %></h5>
+          <p><%= submitted.service.truncate_words(10).html_safe %></p>
+          </div>
+          <div class="cardlinks">
+            <h6><%= link_to 'Veja o texto completo', submitted, class: "bluelink" %></h6>
           <%if user_signed_in?%>
             <%if submitted.user_id == current_user.id%>
-              <h6><%= link_to 'Apagar', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar esta solicitação?' } %></h6>
+              <h6><%= link_to 'Apagar o texto', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar esta solicitação?' }, class: "redlink" %></h6>
             <%end%>
           <%end%>
+        </div>
         </div>
         </div>
           <%end%>
