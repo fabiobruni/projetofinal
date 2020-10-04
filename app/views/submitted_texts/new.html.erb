@@ -1,13 +1,14 @@
+<%= javascript_include_tag Ckeditor.cdn_url%>
 <h1>Texto a ser traduzido</h1>
 
 <%= simple_form_for @submitted do |f| %>
   <%= f.input :url, label: 'Endereço no gov.br'%>
   <%= f.input :institution, label: 'Instituição:'%>
   <%= f.input :service_title, label: 'Nome do serviço:'%>
-  <%= f.input :service, label: 'Serviço:'%>
-  <%= f.input :target_public, label: 'Público alvo:'%>
-  <%= f.input :service_stages, label: 'Etapas do serviço:' %>
-  <%= f.input :more_info, label: 'Mais informações:' %>
+  <%= f.input :service, label: 'Serviço:', as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }%>
+  <%= f.input :target_public, label: 'Público alvo:', as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }%>
+  <%= f.input :service_stages, label: 'Etapas do serviço:', as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
+  <%= f.input :more_info, label: 'Mais informações:', as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
   <%= f.input :deadline, label: 'Prazo:', as: :date, html5: true%>
   <%= f.submit "Pedir Sugestões", :class => "photobtn main_button" %>
 <% end %>
