@@ -1,11 +1,16 @@
 <%= javascript_include_tag Ckeditor.cdn_url%>
-<h1>Texto a ser traduzido</h1>
+<h1>Sugestão de Revisão</h1>
 
 <%= simple_form_for ([@submitted, @translated]) do |f| %>
-  <%= f.input :service_title, input_html: { value: @submitted.service_title }, label: 'Nome do serviço:'%>
-  <%= f.input :service, label: 'Serviço:', as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.service }%>
-  <%= f.input :target_public, label: 'Público alvo:', as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.target_public }%>
-  <%= f.input :service_stages, label: 'Etapas do serviço:', as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.service_stages } %>
-  <%= f.input :more_info, label: 'Mais informações:', as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.more_info } %>
-  <%= f.submit "Enviar minha sugestão de revisão", :class => "photobtn main_button" %>
+  <h6 class="formlabel">Nome do serviço:</h6>
+    <%= f.input :service_title, input_html: { value: @submitted.service_title }, label: false%>
+  <h6 class="formlabel">O que é?</h6>
+    <%= f.input :service, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.service }%>
+  <h6 class="formlabel">Público-alvo:</h6>
+    <%= f.input :target_public, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.target_public }%>
+  <h6 class="formlabel">Etapas do serviço:</h6>
+    <%= f.input :service_stages, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.service_stages } %>
+  <h6 class="formlabel">Mais informações:</h6>
+  <%= f.input :more_info, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.more_info } %>
+  <%= f.submit "Enviar minha sugestão", :class => "btn-solicitar" %>
 <% end %>
