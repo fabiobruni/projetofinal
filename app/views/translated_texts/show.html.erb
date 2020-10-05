@@ -50,6 +50,10 @@
 <%end%>
 </div>
 
+<%if @review.user_id == current_user.id%>
+<%= link_to 'Apagar o texto', "#{@review.id}", method: :delete, data: { confirm: 'Tem certeza que quer apagar este texto?' }, class: "redlink" %>
+<%end%>
+
 <%@evaluations = Evaluation.all.select { |eval| eval.translated_text_id == @review.id}%>
 <%if user_signed_in? && @evaluations != nil%>
   <%@mine_evaluations = @evaluations.select { |evaluation| evaluation.user_id == current_user.id} %>
@@ -63,8 +67,8 @@
     <%@original.save%>">Acatar Sugestão</button></a>
   <%end%>
 
-    <%if user_signed_in? && @mine_evaluations.size < 1%>
-      <%=render "evaluations/new",original: @original, review: @review, evaluation: Evaluation.new%>
+    <%if user_signed_in? && @mine_evaluations.size < 1 && @review.user_id != current_user.id%>
+      <%=render "evaluations/new", original: @original, review: @review, evaluation: Evaluation.new%>
     <%end%>
 <br>
 <br>
