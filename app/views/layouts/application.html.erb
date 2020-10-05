@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Projetofinal</title>
+    <title>Brasileirês</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,16 +10,11 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
 
-    <p>Now is <%= Time.now %><p>
-    <p>A very simple footer</p>
-    
-    <%= link_to "Exemplos", example_path %>
   </body>
 </html>

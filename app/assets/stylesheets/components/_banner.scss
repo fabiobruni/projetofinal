@@ -1,0 +1,16 @@
+.banner{
+  background-image: url('banner.jpg');
+  background-repeat:no-repeat;
+  height:300px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  h1{
+    color:white;
+    text-shadow: 2px 1px #472d30;
+    text-align:center;
+    padding:15px;
+    font-size:50px;
+  }
+}

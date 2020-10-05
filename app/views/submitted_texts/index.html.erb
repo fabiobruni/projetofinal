@@ -1,28 +1,44 @@
-
+<div class="banner">
+  <%if user_signed_in?%>
+    <h1>Olá <span style="color:white;font-weight:800"><%="#{current_user.name}"%></span>, bem vindo!</h1>
+  <%else%>
+    <h1>Olá visitante!</h1>
+  <%end%>
+</div>
 <div class="container">
-  <p>Hello, teste</p>
+  <br>
+  <h1>Textos postados</h1>
   <div class="row">
-    <div class="col-sm-8 offset-sm-2">
+    <div class="col-sm-10 offset-sm-1">
       <div id="submitted">
-      <%= form_tag submitted_texts_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Encontre um texto"
-        %>
-        <%= submit_tag "Procurar texto", class: "btn btn-primary" %>
-      <% end %>
+        <%if @submitteds != nil%>
+        <div class="row">
         <% @submitteds.each do |submitted| %>
-          <h2><%= submitted.service_title %></h2>
-          <h3><%= submitted.service %></h3>
-          <h4><%= submitted.deadline %></h4>
-          <%= link_to 'Veja o texto completo', submitted %>
-          <%= link_to 'Apagar', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar esta solicitação?' } %>
-
+          <div class="col-3">
+            <div class="card">
+            <i class='fas fa-file-alt'></i>
+            <div class="cardcontent">
+          <h6>Sugestões até: <span style="color:#0c326f"><%= submitted.deadline.strftime("%d/%m/%Y")%></span></h6>
+          <h5><%= submitted.service_title.truncate_words(10) %></h5>
+          <p><%= submitted.service.truncate_words(10).html_safe %></p>
+          </div>
+          <div class="cardlinks">
+            <h6><%= link_to 'Veja o texto completo', submitted, class: "bluelink" %></h6>
+          <%if user_signed_in?%>
+            <%if submitted.user_id == current_user.id%>
+              <h6><%= link_to 'Apagar o texto', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar esta solicitação?' }, class: "redlink" %></h6>
+            <%end%>
+          <%end%>
+        </div>
+        </div>
+        </div>
+          <%end%>
         <%end%>
-
       </div>
-    <%= link_to 'Quero  submeter um texto', new_submitted_text_path %>
+    </div>
     </div>
   </div>
-</div
+</div>
+    <div class="linkshome">
+      <%= link_to 'Quero submeter um texto', new_submitted_text_path, class: "links" %>
+    </div>

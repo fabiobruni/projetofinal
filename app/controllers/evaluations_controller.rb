@@ -16,14 +16,16 @@ def create
     end
   end
 
+
   private
 
   def set_translated_text
-    @translated_text = Translated_text.find(params[:translated_text_id])
+    @translated_text = TranslatedText.find(params[:translated_text_id])
   end
 
+
   def evaluation_params
-    params.require(:evaluation).permit(:content, :stars)
+    params.require(:evaluation).permit(:content, :stars, :user_id, :translated_text_id)
   end
 
 end

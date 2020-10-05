@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Brasileirês</h1>
+<br>
+<div class="container">
+  <%@submitteds.each do |text|%>
+  <div class="row">
+    <div class="col-4">
+      <%=text.service_title%>
+      <%=text.service%>
+    </div>
+  </div>
+</div>
