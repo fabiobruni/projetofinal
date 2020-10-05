@@ -52,7 +52,7 @@
 
 <%@evaluations = Evaluation.all.select { |eval| eval.translated_text_id == @review.id}%>
 <%if @evaluations != nil%>
-  <%@mine_evaluations = @evaluations.select { |evaluation| evaluation.user_id == current_user} %>
+  <%@mine_evaluations = @evaluations.select { |evaluation| evaluation.user_id == current_user.id} %>
 <%end%>
 
 <%if user_signed_in?%>
