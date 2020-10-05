@@ -1,4 +1,4 @@
-<h1 style="color:#118ab2 !important"><%=@review.service_title%></h1>
+<h1 style="color:#264653 !important"><%=@review.service_title%></h1>
 <br>
 <div class="container">
 <a style="text-decoration:none !important" data-toggle="collapse" href="#oQueE" role="button" aria-expanded="false" aria-controls="oQueE"><h3 class="rev-subtitle">☰  O que é?</h3></a>
@@ -50,6 +50,11 @@
 <%end%>
 </div>
 
+<%@evaluations = Evaluation.all.select { |eval| eval.translated_text_id == @review.id}%>
+<%if @evaluations != nil%>
+  <%@mine_evaluations = @evaluations.select { |evaluation| evaluation.user_id == current_user.id}%>
+<%end%>
+
 <%if user_signed_in?%>
   <%if current_user.id == @review.submitted_text.user_id%>
     <a href="<%="/submitted_texts/#{@original.id}"%>"><button class="btn-primary src" onclick="<%@original.service = @review.service%>;
@@ -58,14 +63,48 @@
     <%@original.more_info = @review.more_info%>;
     <%@original.save%>">Acatar Sugestão</button></a>
   <%else%>
-    Avaliação
+    <%if @mine_evaluations.size < 1%>
+      <%=render "evaluations/new",original: @original, review: @review, evaluation: Evaluation.new%>
+    <%end%>
   <%end%>
 <%end%>
-
+<br>
+<br>
+  <%@star = '★'%>
+  <%@sum = 0%>
+  <%@media = 0%>
 <%if @evaluations != nil%>
-<h2>Avaliações da sugestão</h2>
+  <%@evaluations.each { |x| @sum += x.stars}%>
+  <%if @sum > 0%>
+  <%@media = (@sum/(@evaluations.size if @evaluations.size > 0)).round%>
+  <%end%>
+  <%end%>
+  <%if @evaluations != nil%>
+  <%if @media > 0%>
+<div class="row justify-content-center">
+  <div class="col-4"></div>
+<div class="col-4">
+<div class="eval">
+  <h4>Média de avaliações:</h4>
+  <h5><%=(@star * @media)%></h5>
+  <%end%>
+</div>
+</div>
+<div class="col-4"></div>
+</div>
+<br>
+<br>
+<div class="row">
 <%@evaluations.each do |evaluation|%>
-<%=evaluation.stars%>
-<%=evaluation.content%>
+<div class="col-3">
+  <div class="eval">
+<h5><%=evaluation.user.name%></h5>
+<h6><%=@star * evaluation.stars.to_i%></h6>
+<p style="text-align:center"><%=evaluation.content.capitalize%></p>
+<p style="text-align:center"><%=evaluation.created_at.strftime("%d/%m/%Y")%></p>
+</div>
+</div>
 <%end%>
+</div>
 <%end%>
+</div>

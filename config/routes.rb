@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :submitted_texts, only: [ :index, :edit, :new, :create, :destroy, :show, :update ] do
     resources :translated_texts, only: [ :index, :new, :create, :edit, :update , :show] do
-      resources :evaluations, only: [ :new, :show, :create, :edit, :update ]
+      resources :evaluations, only: [:new, :create]
     end
   end
     get 'example', to: 'pages#example'
