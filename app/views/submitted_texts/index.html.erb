@@ -18,7 +18,7 @@
             <div class="card">
             <i class='fas fa-file-alt'></i>
             <div class="cardcontent">
-          <h6>Sugestões até: <span style="color:#0c326f"><%= submitted.deadline.strftime("%d/%m/%Y")%></span></h6>
+          <h6>Sugestões até: <span style="color:#0c326f"><%= format_date(submitted.deadline) %></span></h6>
           <h5><%= submitted.service_title.truncate_words(10) %></h5>
           <p><%= submitted.service.truncate_words(10).html_safe %></p>
           </div>
