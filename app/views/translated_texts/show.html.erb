@@ -51,23 +51,21 @@
 </div>
 
 <%@evaluations = Evaluation.all.select { |eval| eval.translated_text_id == @review.id}%>
-<%if @evaluations != nil%>
-  <%@mine_evaluations = @evaluations.select { |evaluation| evaluation.user_id == current_user} %>
+<%if user_signed_in? && @evaluations != nil%>
+  <%@mine_evaluations = @evaluations.select { |evaluation| evaluation.user_id == current_user.id} %>
 <%end%>
 
-<%if user_signed_in?%>
-  <%if current_user.id == @review.submitted_text.user_id%>
+  <%if user_signed_in? && current_user.id == @review.submitted_text.user_id%>
     <a href="<%="/submitted_texts/#{@original.id}"%>"><button class="btn-primary src" onclick="<%@original.service = @review.service%>;
     <%@original.target_public = @review.target_public%>;
     <%@original.service_stages = @review.service_stages%>;
     <%@original.more_info = @review.more_info%>;
     <%@original.save%>">Acatar Sugestão</button></a>
-  <%else%>
-    <%if @mine_evaluations.size < 1%>
+  <%end%>
+
+    <%if user_signed_in? && @mine_evaluations.size < 1%>
       <%=render "evaluations/new",original: @original, review: @review, evaluation: Evaluation.new%>
     <%end%>
-  <%end%>
-<%end%>
 <br>
 <br>
   <%@star = '★'%>
