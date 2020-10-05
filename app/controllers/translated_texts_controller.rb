@@ -7,7 +7,6 @@ class TranslatedTextsController < ApplicationController
     @translated = TranslatedText.all
   end
 
-
   def new
     @translated = TranslatedText.new
   end
@@ -23,12 +22,18 @@ class TranslatedTextsController < ApplicationController
     end
   end
 
+  def edit
+    @review = TranslatedText.find(params[:id])
+  end
+
+  def update
+    set_translated
+    @review.update(translated_params)
+    redirect_to translated_texts_path(@submitted)
+  end
+
   def show
     @review = TranslatedText.find(params[:id])
-    @evaluation = Evaluation.new
-    if Evaluation.all.select { |evaluation| evaluation.translated_text_id == @review.id}.size > 0
-      @evaluations = Evaluation.all.select { |evaluation| evaluation.translated_text_id }
-    end
     @original = SubmittedText.find(@review.submitted_text_id)
   end
 

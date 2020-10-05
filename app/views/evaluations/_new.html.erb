@@ -1,10 +1,7 @@
-<!-- <h1>Avaliacao da tradução <%= @review.service_title %></h1> -->
-
-<%= simple_form_for [@review, @evaluation] do |f|%>
-
-  <%= f.input :content %>
-  <%= f.input :stars %>
-
-  <%= f.submit "Enviar", class: 'btn btn-primary' %>
-
+<h4>Você gostaria de avaliar esta sugestão?</h4>
+<%= simple_form_for [original, review, evaluation] do |f| %>
+  <%= f.input :content%>
+  <%= f.input :stars%>
+  <%= f.submit "Avaliar"%>
 <% end %>
+<br>

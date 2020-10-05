@@ -1,5 +1,6 @@
-.banner{
-  background-image: url('banner.jpg');
+.bannerbra{
+  background: url('banner.jpg') center center;
+  -webkit-background-size: cover;
   background-repeat:no-repeat;
   height:300px;
   width:100%;
