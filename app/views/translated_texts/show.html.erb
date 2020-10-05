@@ -101,7 +101,7 @@
 <h5><%=evaluation.user.name%></h5>
 <h6><%=@star * evaluation.stars.to_i%></h6>
 <p style="text-align:center"><%=evaluation.content.capitalize%></p>
-<p style="text-align:center"><%=evaluation.created_at.strftime("%d/%m/%Y")%></p>
+<p style="text-align:center"><%= format_date(evaluation.created_at) %></p>
 </div>
 </div>
 <%end%>
