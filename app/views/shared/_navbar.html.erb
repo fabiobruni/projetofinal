@@ -1,94 +1,39 @@
-<!-- User --><!-- Header --><!--
-Para habilitar o novo menu &#233; necess&#225;rio descoment&#225;-lo em:
-govbr/institucional/viewlets/institucional_menu_govbr.pt
---><!-- <header id="site-header" class="has-navigation-swipe"> -->
-<header id="site-header" class="has-navigation-dropdown">
-  <div class="header-wrapper secondary">
-    <div class="portal-name">
-      <a href="https://www.gov.br/pt-br" class="portal-logo" title="Gov.br">
-        <span class="sr-only">Portal Gov.br</span>
-      </a>
-      
-    </div>
-
-    <div class="site-header-links">
-      <div class="links-rapidos">
-        <a class="toggle-links-rapidos" title="Acesso rápido" href="#">
-          <span class="fas fa-ellipsis-v"></span>
-          <span class="sr-only">Acesso rápido</span>
-        </a>
-
-        <ul>
-          <!-- TODO: Traduzir -->
-          <li class="titulo">Acesso Rápido</li>
-          <li>
-            <a href="https://www.gov.br/pt-br/orgaos-do-governo">Órgãos do Governo</a>
-          </li>
-          <li>
-            <a href="http://www.acessoainformacao.gov.br">Acesso à Informação</a>
-          </li>
-          <li>
-            <a href="http://www4.planalto.gov.br/legislacao">Legislação</a>
-          </li>
-          <li>
-            <a href="/accessibility-info">Acessibilidade</a>
-          </li>
-          <!--<li>
-            <a href="http://www.vlibras.gov.br/" class="link-vlibras">
-              <span class="fas fa-assistive-listening-systems"></span>
-            </a>
-          </li>-->
-          <!-- <li class="language-selection">
-            <a href="" class="currentLanguage language-pt-br">
-              Portugu&#234;s
-            </a>
-            <ul>
-              <li class="title">Idioma/Language</li>
-              <li class="currentLanguage language-pt-br">
-                <a href="" title="Portugu&#234;s (Brasil)">Portugu&#234;s (Brasil)</a>
-              </li>
-              <li class="language-en">
-                <a href="" title="English">English</a>
-              </li>
-              <li class="language-es">
-                <a href="" title="Espa&#241;ol">Espa&#241;ol</a>
-              </li>
-            </ul>
-          </li> -->
-        </ul>
+<div class="navbar-bra">
+      <div class="newlogo">
+        <%@pop = image_tag 'logo.png'%>
+        <%= link_to @pop, submitted_texts_url, class: "nav-link" %>
       </div>
-      <ul class="header-icons">
-        <li>
-          <a href="#" class="link-contraste">
-            <span class="fas fa-adjust" aria-hidden="true"></span>
-            <span class="sr-only">Mudar para o modo de alto contraste</span>
-          </a>
-        </li>
-      </ul>
-
-      <a href="http://solicitacao.servicos.gov.br" class="link-acesso">
-        <span class="fas fa-user"></span>
-        Entrar
-      </a>
-    </div>
-  </div>
-
-  <div class="header-wrapper main">
-    <div class="site-name-wrapper">
-      <a class="ico-navegacao toggle-main-navigation" href="#">
-        <span class="sr-only">Abrir menu principal de navegação</span>
-        <span class="fa fa-bars" aria-hidden="true"></span>
-        <span class="fa fa-times" aria-hidden="true"></span>
-      </a>
-
-      <!-- <a href="/" class="site-name">Nome do site</a> -->
-      <!-- Usar nome completo -->
-      
-      <div class="site-name">
-        <a href="https://www.gov.br/pt-br" title="O portal do Brasil">Governo do Brasil</a>
+      <div class="search">
+        <div>
+          <%= form_tag submitted_texts_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control srccamp",
+          placeholder: "Encontre um texto"
+        %>
       </div>
+      <div>
+        <%= submit_tag "Buscar", class: "btn btn-primary src" %>
+      <% end %>
     </div>
-
-    
+      </div>
+      <div class="nav-item">
+        <%= link_to "Veja alguns exemplos", example_path %>
+      </div>
+      <% if user_signed_in? %>
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <%=image_tag 'user.png', class: 'avatar'%>
+            </a>
+          <div id="downcase" class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Ajudar alguém', submitted_texts_url, class: "dropdown-item" %>
+              <%= link_to 'Enviar um texto', new_submitted_text_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </div>
+      <% else %>
+        <div class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </div>
+      <% end %>
   </div>
-</header>

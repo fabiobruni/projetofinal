@@ -23,6 +23,7 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
+// require(“../../../vendor/assets/dist/js/dsgov”)
 import "bootstrap";
 // Acrescido para poder usar o dsgov
 require("../../../ vendor / assets / dist / js / dsgov")

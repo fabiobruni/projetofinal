@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Projetofinal</title>
+    <title>Brasileirês</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -176,16 +176,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link href="/++theme++padrao_govbr/govbrtheme-41fed54.css" rel="stylesheet" />
 
   </head>
-
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
+    <br>
+    <br>
+    <br>
 
-    <p>Now is <%= Time.now %><p>
-    <p>A very simple footer</p>
-    
-    <%= link_to "Exemplos", example_path %>
   </body>
+  <footer>@Brasileirês</footer>
 </html>

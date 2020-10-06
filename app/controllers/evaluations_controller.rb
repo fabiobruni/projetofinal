@@ -1,29 +1,24 @@
 class EvaluationsController < ApplicationController
-before_action :set_translated_text, only: [:new, :create]
+  def new
+    @review = TranslatedText.find(params[:translated_text_id])
+    @evaluation = Evaluation.new
+  end
 
-def new
-  @evaluation = Evaluation.new
-end
-
-def create
+  def create
+    @review = TranslatedText.find(params[:translated_text_id])
     @evaluation = Evaluation.new(evaluation_params)
-    @evaluation.translated_text = @evaluation
-
+    @evaluation.translated_text = @review
+    @evaluation.user = current_user
     if @evaluation.save
-      redirect_to evaluation_path(@evaluation)
+      redirect_to "#", notice: "avaliação salva"
     else
-      render :new
+      render "translations/new"
     end
   end
 
   private
 
-  def set_translated_text
-    @translated_text = Translated_text.find(params[:translated_text_id])
-  end
-
   def evaluation_params
     params.require(:evaluation).permit(:content, :stars)
   end
-
 end

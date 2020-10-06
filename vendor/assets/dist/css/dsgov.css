@@ -6466,7 +6466,7 @@ pre code {
   width: 100%;
 }
 
-.dropdown {
+/*.dropdown {
   position: relative;
   z-index: 1;
 }
@@ -6506,7 +6506,7 @@ pre code {
 
 .dropdown .menu.is-active {
   display: block;
-}
+}*/
 
 .skip-menu {
   list-style: none;

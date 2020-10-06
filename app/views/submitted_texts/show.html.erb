@@ -1,54 +1,59 @@
+<br>
 <h1><%=@text.service_title%></h1>
 <br>
-<h3>O que é?</h3>
-<div>
-  <%=@text.service%>
+<div class="container">
+<a style="text-decoration:none !important" data-toggle="collapse" href="#oQueE" role="button" aria-expanded="false" aria-controls="oQueE"><h3 class="serv-subtitle">☰  O que é?</h3></a>
+<div class="serv-parttext collapse" id="oQueE">
+  <%=@text.service.html_safe%>
 </div>
 
-<h3>Quem pode utilizar o serviço?</h3>
-<div>
-  <%=@text.target_public%>
+<a style="text-decoration:none !important" data-toggle="collapse" href="#publico" role="button" aria-expanded="false" aria-controls="publico"><h3 class="serv-subtitle">☰  Quem pode utilizar o serviço?</h3></a>
+<div class="serv-parttext collapse" id="publico">
+  <%=@text.target_public.html_safe%>
 </div>
 
-<h3>Etapas do Serviço</h3>
-<div>
-  <%=@text.service_stages%>
+<a style="text-decoration:none !important" data-toggle="collapse" href="#etapas" role="button" aria-expanded="false" aria-controls="etapas"><h3 class="serv-subtitle">☰  Etapas do Serviço</h3></a>
+<div class="serv-parttext collapse" id="etapas">
+  <%=@text.service_stages.html_safe%>
 </div>
 
-<h3>Mais Informações</h3>
-<div>
-  <%=@text.more_info%>
+<a style="text-decoration:none !important" data-toggle="collapse" href="#maisInfo" role="button" aria-expanded="false" aria-controls="maisInfo"><h3 class="serv-subtitle">☰  Mais Informações</h3></a>
+<div class="serv-parttext collapse" id="maisInfo">
+  <%=@text.more_info.html_safe%>
 </div>
 
-<%if user_signed_in?%>
-  <p>
-    <%= link_to 'Revise este texto', new_submitted_text_translated_text_path(@text) %>
+  <%if user_signed_in? && current_user.id == @text.user.id%>
+      <%= link_to 'Editar o texto', edit_submitted_text_path(@text), class: 'links' %>
+  <%end%>
+
+
+  <%if user_signed_in? && current_user.id != @text.user.id%>
+    <%= link_to 'Sugerir revisão', new_submitted_text_translated_text_path(@text), class: 'links' %>
   </p>
-
   <% if  @text.translated_texts.count.zero? %>
     <p>
       Seja o primeiro a revisar este texto
-
     </p>
   <% end %>
-
-<% end %>
-
-<%if user_signed_in?%>
-  <%if current_user.id == @text.user.id %>
-    <a class="btn btn-primary" href="#">Editar texto</a>
-  <%else%>
-    <a class="btn btn-primary" href="#">Sugerir revisão</a>
   <%end%>
-<%end%>
-
 
 <%if @reviews != nil%>
-<h2>Revisões sugeridas</h2>
-<%@reviews.each do |review|%>
+<%@concerned = @reviews.select { |review| review.submitted_text_id == @text.id}%>
+<h2 style="color:#0c326f">Revisões sugeridas</h2>
+<br>
+<div class="row">
+<%@concerned.each_with_index do |review, i|%>
+<div class="col-4">
+  <div class="review">
+    <div class="counter">#<%=i + 1%></div>
+    <br>
   <a href=<%="#{@text.id}/translated_texts/#{review.id}"%>>
-  <h4><%=review.user.email%></h4>
-  <p><%=review.service%></p>
+  <h4 style="text-align:center"><%=review.user.name%></h4>
+  <p style="text-align:center"><%=review.service.truncate_words(10).html_safe%></p>
 </a>
+</div>
+</div>
   <%end%>
+</div>
 <%end%>
+</div>
