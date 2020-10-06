@@ -51,7 +51,8 @@
 </div>
 
 <%if user_signed_in? && @review.user_id == current_user.id%>
-  <%= link_to 'Apagar sugestão', "#{@review.id}", method: :delete, data: { confirm: 'Tem certeza que quer apagar este texto?' }, class: "btn-apagar" %>
+  <%= link_to 'Editar sugestão', edit_submitted_text_translated_text_path(@review), class: 'btn-solicitar pequeno conforto spaced'%>
+  <%= link_to 'Apagar sugestão', "#{@review.id}", method: :delete, data: { confirm: 'Tem certeza que quer apagar este texto?' }, class: "btn-apagar pequeno conforto spaced" %>
 <%end%>
 
 <%@evaluations = Evaluation.all.select { |eval| eval.translated_text_id == @review.id}%>

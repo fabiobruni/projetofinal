@@ -26,6 +26,10 @@ box-sizing: content-box;
    padding:10px 20px;
 }
 
+.spaced{
+  margin: 10px 30px;
+}
+
 .btn-apagar{
 font-family: rawline,helvetica,arial,sans-serif;
 outline: none;
@@ -35,8 +39,8 @@ text-decoration: none !important;
 background-color: #6a040f;
 height: 52px;
 line-height: 52px;
-width: 180px;
-font-size: 12px;
+// width: 180px;
+font-size: 16px;
 font-weight: 600;
 border-radius: 51px;
 text-align: center;
@@ -44,5 +48,5 @@ color: #fff!important;
 border: 2px solid #ededed;
 margin:0px;
 box-sizing: content-box;
-padding:5px 10px;
+// padding:5px 10px;
 }
