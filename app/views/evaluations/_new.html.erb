@@ -1,7 +1,9 @@
-<h4>Você gostaria de avaliar esta sugestão?</h4>
+<h5 style="color:#0c326f">Você gostaria de avaliar esta sugestão?</h5>
 <%= simple_form_for [original, review, evaluation] do |f| %>
-  <%= f.input :content%>
-  <%= f.input :stars%>
-  <%= f.submit "Avaliar"%>
+<h6 class="formlabel">Comentário:</h6>
+  <%= f.input :content, label: false%>
+<h6 class="formlabel">Número de  ★ (1 a 5):</h6>
+  <%= f.input :stars, label: false%>
+  <%= f.submit "Avaliar", class: 'btn-solicitar'%>
 <% end %>
 <br>
