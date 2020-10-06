@@ -89,8 +89,8 @@
   <div class="col-4"></div>
 <div class="col-4">
 <div class="eval">
-  <h4>Média de avaliações:</h4>
-  <h5><%=(@star * @media)%></h5>
+  <h4 class="evaltitle">Média de avaliações:</h4>
+  <h5 class="stars"><%=(@star * @media)%></h5>
   <%end%>
 </div>
 </div>
@@ -102,8 +102,8 @@
 <%@evaluations.each do |evaluation|%>
 <div class="col-3">
   <div class="eval">
-<h5><%=evaluation.user.name%></h5>
-<h6><%=@star * evaluation.stars.to_i%></h6>
+<h5 class="evaltitle"><%=evaluation.user.name%></h5>
+<h6 class="stars"><%=@star * evaluation.stars.to_i%></h6>
 <p style="text-align:center"><%=evaluation.content.capitalize%></p>
 <p style="text-align:center"><%= format_date(evaluation.created_at) %></p>
 </div>
