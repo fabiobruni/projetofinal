@@ -39,10 +39,8 @@ class TranslatedTextsController < ApplicationController
 
   def destroy
     @translated.destroy
-    redirect_to translated_texts, notice: 'Pronto, sua sugestão de tradução foi apagada.'
+    redirect_to "#", notice: 'Pronto, sua sugestão de tradução foi apagada.'
   end
-
-
 
   private
   def set_submitted

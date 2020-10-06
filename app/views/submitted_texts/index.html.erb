@@ -26,7 +26,7 @@
                   <h6><%= link_to 'Veja o texto completo', submitted, class: "bluelink" %></h6>
                     <%if user_signed_in?%>
                       <%if submitted.user_id == current_user.id %>
-                        <h6><%= link_to 'Apagar o texto', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar esta solicitação?' }, class: "redlink" %></h6>
+                        <h6><%= link_to 'Apagar o texto', submitted, method: :delete, data: { confirm: 'Tem certeza que quer apagar este texto?' }, class: "redlink" %></h6>
                       <%end%>
                     <%end%>
                 </div>
