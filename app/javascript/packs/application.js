@@ -25,9 +25,6 @@ require("channels")
 // External imports
 // require(“../../../vendor/assets/dist/js/dsgov”)
 import "bootstrap";
-// Acrescido para poder usar o dsgov
-require("../../../ vendor / assets / dist / js / dsgov")
-
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
