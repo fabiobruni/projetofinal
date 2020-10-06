@@ -16,11 +16,11 @@
           <% @submitteds.each do |submitted| %>
             <div class="col-3">
               <div class="card">
-                <i class='fas fa-file-alt'></i>
+                <div class="iconbox"><i class='fas fa-file-alt'></i></div>
+                  <h6 class="cardtitle">Sugestões até: <span style="color:#0c326f"><%= format_date(submitted.deadline) %></span></h6>
                 <div class="cardcontent">
-                  <h6>Sugestões até: <span style="color:#0c326f"><%= format_date(submitted.deadline) %></span></h6>
                   <h5><%= submitted.service_title.truncate(40) %></h5>
-                  <p><%= submitted.service.truncate_words(10).html_safe %></p>
+                  <p><%= submitted.service.truncate(150).html_safe %></p>
                 </div>
                 <div class="cardlinks">
                   <h6><%= link_to 'Veja o texto completo', submitted, class: "bluelink" %></h6>

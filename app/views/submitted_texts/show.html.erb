@@ -22,12 +22,13 @@
   <%=@text.more_info.html_safe%>
 </div>
 
-<%if user_signed_in?%>
-  <%if current_user.id == @text.user.id %>
-    <%= link_to 'Editar o texto', edit_submitted_text_path(@text), class: 'links' %>
-  <%else%>
-  <p>
-    <%= link_to 'Revise este texto', new_submitted_text_translated_text_path(@text), class: 'links' %>
+  <%if user_signed_in? && current_user.id == @text.user.id%>
+      <%= link_to 'Editar o texto', edit_submitted_text_path(@text), class: 'links' %>
+  <%end%>
+
+
+  <%if user_signed_in? && current_user.id != @text.user.id%>
+    <%= link_to 'Sugerir revisão', new_submitted_text_translated_text_path(@text), class: 'links' %>
   </p>
   <% if  @text.translated_texts.count.zero? %>
     <p>
@@ -35,13 +36,13 @@
     </p>
   <% end %>
   <%end%>
-<%end%>
 
 <%if @reviews != nil%>
+<%@concerned = @reviews.select { |review| review.submitted_text_id == @text.id}%>
 <h2 style="color:#0c326f">Revisões sugeridas</h2>
 <br>
 <div class="row">
-<%@reviews.each_with_index do |review, i|%>
+<%@concerned.each_with_index do |review, i|%>
 <div class="col-4">
   <div class="review">
     <div class="counter">#<%=i + 1%></div>
