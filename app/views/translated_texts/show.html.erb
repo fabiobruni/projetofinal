@@ -60,12 +60,7 @@
 <%end%>
 
   <%if user_signed_in? && current_user.id == @review.submitted_text.user_id%>
-    <a href="<%="/submitted_texts/#{@original.id}"%>"><button class="btn-solicitar conforto" onclick="<%@original.service_title = @review.service_title%>;<%@original.service = @review.service%>;
-    <%@original.target_public = @review.target_public%>;
-    <%@original.service_stages = @review.service_stages%>;
-    <%@original.more_info = @review.more_info%>;
-    <%@review.choosen_translat = true%>;
-    <%@original.save%>">Acatar Sugestão</button></a>
+    <a href="<%="/submitted_texts/#{@original.id}"%>"><button class="btn-solicitar conforto" onclick="<%@original.service_title = @review.service_title%>;<%@original.service = @review.service%>;<%@original.target_public = @review.target_public%>;<%@original.service_stages = @review.service_stages%>;<%@original.more_info = @review.more_info%>;<%@review.choosen_translat = true%>;<%@review.save%><%@original.save%>">Acatar Sugestão</button></a>
   <%end%>
 
     <%if user_signed_in? && @mine_evaluations.size < 1 && @review.user_id != current_user.id%>
