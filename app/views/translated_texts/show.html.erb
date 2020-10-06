@@ -60,7 +60,7 @@
 <%end%>
 
   <%if user_signed_in? && current_user.id == @review.submitted_text.user_id%>
-    <a href="<%="/submitted_texts/#{@original.id}"%>"><button class="btn-primary src" onclick="<%@original.service = @review.service%>;
+    <a href="<%="/submitted_texts/#{@original.id}"%>"><button class="btn-solicitar conforto" onclick="<%@original.service_title = @review.service_title%>;<%@original.service = @review.service%>;
     <%@original.target_public = @review.target_public%>;
     <%@original.service_stages = @review.service_stages%>;
     <%@original.more_info = @review.more_info%>;

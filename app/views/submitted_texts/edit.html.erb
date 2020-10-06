@@ -14,5 +14,5 @@
   <%= f.input :more_info, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @text.more_info.html_safe%>
 <h5 class="formlabel">Sugestões podem ser feitas até:</h5>
   <%= f.input :deadline, label: false, as: :date, html5: true, value:@text.deadline%>
-  <%= f.submit "Salvar", method: :update, class: 'btn-solicitar' %>
+  <%= f.submit "Salvar", method: :update, class: 'btn-solicitar conforto-plus' %>
 <%end%>
