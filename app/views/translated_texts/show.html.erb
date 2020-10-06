@@ -67,8 +67,14 @@
     <%@original.save%>">Acatar Sugestão</button></a>
   <%end%>
 
-    <%if user_signed_in? && @mine_evaluations.size < 1 && @review.user_id != current_user.id%>
-      <%=render "evaluations/new", original: @original, review: @review, evaluation: Evaluation.new%>
+    <%if user_signed_in? && @mine_evaluations.size < 1% && @review.user_id != current_user.id%>
+    <div class="row">
+      <div class="col-4">
+        <br>
+        <br>
+      <%=render "evaluations/new",original: @original, review: @review, evaluation: Evaluation.new%>
+    </div>
+  </div>
     <%end%>
 <br>
 <br>
@@ -87,8 +93,8 @@
   <div class="col-4"></div>
 <div class="col-4">
 <div class="eval">
-  <h4>Média de avaliações:</h4>
-  <h5><%=(@star * @media)%></h5>
+  <h4 class="evaltitle">Média de avaliações:</h4>
+  <h5 class="stars"><%=(@star * @media)%></h5>
   <%end%>
 </div>
 </div>
@@ -100,8 +106,8 @@
 <%@evaluations.each do |evaluation|%>
 <div class="col-3">
   <div class="eval">
-<h5><%=evaluation.user.name%></h5>
-<h6><%=@star * evaluation.stars.to_i%></h6>
+<h5 class="evaltitle"><%=evaluation.user.name%></h5>
+<h6 class="stars"><%=@star * evaluation.stars.to_i%></h6>
 <p style="text-align:center"><%=evaluation.content.capitalize%></p>
 <p style="text-align:center"><%= format_date(evaluation.created_at) %></p>
 </div>
