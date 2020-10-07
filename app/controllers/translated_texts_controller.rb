@@ -16,7 +16,7 @@ class TranslatedTextsController < ApplicationController
     @translated.submitted_text = @submitted
     @translated.user = current_user
     if @translated.save
-      redirect_to submitted_text_path(@submitted), notice: 'Sugestão cadastrada com sucesso.'
+      redirect_to edit_submitted_text_translated_text_path(@submitted, @translated), notice: 'Rascunho salvo com sucesso.'
     else
       render :new
     end
@@ -39,7 +39,7 @@ class TranslatedTextsController < ApplicationController
   end
 
   def destroy
-    @translated.destroy
+    @review.destroy
     redirect_to "#", notice: 'Pronto, sua sugestão de tradução foi apagada.'
   end
 
@@ -49,7 +49,7 @@ class TranslatedTextsController < ApplicationController
   end
 
   def translated_params
-    params.require(:translated_text).permit(:service_title, :service, :target_public, :service_stages, :more_info)
+    params.require(:translated_text).permit(:service_title, :service, :target_public, :service_stages, :more_info, :draft)
   end
 
    def set_translated
