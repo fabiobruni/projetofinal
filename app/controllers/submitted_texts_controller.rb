@@ -36,7 +36,7 @@ class SubmittedTextsController < ApplicationController
   def update
     set_submitted
     @submitted.update(submitted_params)
-    redirect_to submitted_texts_path(@submitted)
+    redirect_to submitted_texts_path(@submitted), notice: "Seu texto foi modificado com sucesso"
   end
 
   def show
