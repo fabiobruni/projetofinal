@@ -5,9 +5,11 @@
     <h1>Olá visitante!</h1>
   <%end%>
 </div>
+<%if user_signed_in? && current_user.is_writer == true%>
 <div class="linkshome">
   <%= link_to 'Quero submeter um texto', new_submitted_text_path, class: "links" %>
 </div>
+<%end%>
 <div class="container">
   <br>
   <h1>Textos postados</h1>
