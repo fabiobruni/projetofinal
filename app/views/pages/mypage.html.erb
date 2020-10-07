@@ -3,7 +3,7 @@
 <div class="container">
   <ul>
     <li>Quantidade de sugestões postadas: <span class="dashnumber"><%=@mytranslated.size%></span></li>
-    <%if @accepted == 0%>
+    <%if @accepted.size > 0%>
       <li>Quantidade de sugestões aceitas: <span class="dashnumber"><%=@accepted.size%></span></li>
     <%end%>
   </ul>
