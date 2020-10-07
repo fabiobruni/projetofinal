@@ -1,0 +1,14 @@
+<%= javascript_include_tag Ckeditor.cdn_url%>
+<h1 style="margin-bottom:0px"><%= @review.service_title%></h1>
+
+<%=simple_form_for [@original, @review] do |f| %>
+<h5 class="formlabel">O que é?</h5>
+  <%= f.input :service, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @review.service.html_safe%>
+<h5 class="formlabel">Quem pode utilizar o serviço?</h5>
+  <%= f.input :target_public, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @review.target_public.html_safe%>
+<h5 class="formlabel">Etapas do Serviço</h5>
+  <%= f.input :service_stages, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @review.service_stages.html_safe%>
+<h5 class="formlabel">Outras Informações</h5>
+  <%= f.input :more_info, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @review.more_info.html_safe%>
+  <%= f.submit "Salvar", method: :update, class: 'btn-solicitar conforto-plus' %>
+<%end%>

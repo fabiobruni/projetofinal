@@ -24,12 +24,13 @@ class TranslatedTextsController < ApplicationController
 
   def edit
     @review = TranslatedText.find(params[:id])
+    @original = @review.submitted_text
   end
 
   def update
     set_translated
     @review.update(translated_params)
-    redirect_to translated_texts_path(@submitted)
+    redirect_to submitted_text_translated_text_path(@review), notice: "Sugestão alterada com sucesso"
   end
 
   def show
@@ -52,7 +53,7 @@ class TranslatedTextsController < ApplicationController
   end
 
    def set_translated
-    @translated = TranslatedText.find(params[:id])
+    @review = TranslatedText.find(params[:id])
   end
 
  end

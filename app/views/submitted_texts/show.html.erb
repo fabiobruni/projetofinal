@@ -38,7 +38,8 @@
   <%end%>
 
 <%if @reviews != nil%>
-<%@concerned = @reviews.select { |review| review.submitted_text_id == @text.id && review.choosen_translat != true}%>
+<%@uneval =  @reviews.reject { |review| review.choosen_translat == true}%>
+<%@concerned = @uneval.select { |review| review.submitted_text_id == @text.id }%>
 <h2 style="color:#0c326f">Revisões sugeridas</h2>
 <br>
 <div class="row">

@@ -177,3 +177,22 @@
   margin-top:0px;
   padding:10px;
 }
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+
+}
+
+#card-auto {
+  height: auto;
+}
+
+#card-before {
+  color: red;
+}
+
+#card-after {
+  color: green;
+}
