@@ -2,7 +2,8 @@
 <div class='dashdark'>
 <div class="container">
   <ul>
-    <li>Quantidade de sugestões postadas: <span class="dashnumber"><%=@mytranslated.size%></span></li>
+    <li>Quantidade de rascunhos: <span class="dashnumber"><%=@mydraft.size%></span></li>
+    <li>Quantidade de sugestões postadas: <span class="dashnumber"><%=@myposted.size%></span></li>
     <%if @accepted.size > 0%>
       <li>Quantidade de sugestões aceitas: <span class="dashnumber"><%=@accepted.size%></span></li>
     <%end%>
@@ -14,6 +15,11 @@
       <div class="col-xs-12 col-sm-6 col-md-3">
         <a href=<%="submitted_texts/#{text.submitted_text_id}/translated_texts/#{text.id}"%>>
         <div class="dashcard">
+          <%if text.draft == true%>
+          <div class="draft">Rascunho</div>
+          <%else%>
+          <div class="posted">Postado</div>
+          <%end%>
           <h5 class="dashtitle"><%=text.service_title.truncate(45)%></h5>
           <div class="dashcontent">
             <h6><%=text.service.truncate(100).html_safe%></h6>
