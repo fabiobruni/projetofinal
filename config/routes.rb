@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     end
   end
     get 'example', to: 'pages#example'
+    get 'mypage', to: 'pages#mypage'
 end
