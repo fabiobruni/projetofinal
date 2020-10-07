@@ -23,7 +23,7 @@ class SubmittedTextsController < ApplicationController
     @submitted.user_id = current_user.id
     @submitted.save
     if @submitted.save
-      redirect_to submitted_texts_path(@submitted)
+      redirect_to submitted_texts_path(@submitted), notice: 'Texto cadastrado com sucesso.'
     else
       render :new
     end

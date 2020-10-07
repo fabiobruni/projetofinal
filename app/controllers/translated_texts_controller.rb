@@ -16,7 +16,7 @@ class TranslatedTextsController < ApplicationController
     @translated.submitted_text = @submitted
     @translated.user = current_user
     if @translated.save
-      redirect_to submitted_text_path(@submitted)
+      redirect_to submitted_text_path(@submitted), notice: 'Sugestão cadastrada com sucesso.'
     else
       render :new
     end
