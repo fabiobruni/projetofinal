@@ -1,0 +1,60 @@
+
+<div class='dashdark'>
+<div class="container">
+  <ul>
+    <li>Quantidade de sugestões postadas: <span class="dashnumber"><%=@mytranslated.size%></span></li>
+    <%if @accepted == 0%>
+      <li>Quantidade de sugestões aceitas: <span class="dashnumber"><%=@accepted.size%></span></li>
+    <%end%>
+  </ul>
+  <br>
+
+  <div class="row">
+    <%@mytranslated.each do |text|%>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <a href=<%="submitted_texts/#{text.submitted_text_id}/translated_texts/#{text.id}"%>>
+        <div class="dashcard">
+          <h5 class="dashtitle"><%=text.service_title.truncate(45)%></h5>
+          <div class="dashcontent">
+            <h6><%=text.service.truncate(100).html_safe%></h6>
+          </div>
+          <div class="dashrevi">
+            <p><strong>Revisão do texto:</strong></p>
+            <p><a class="dashlink" href=<%="submitted_texts/#{text.submitted_text_id}"%>><%=text.submitted_text.service_title.truncate(45)%></a></p>
+          </div>
+          <div class="dashsuge">
+            <p><strong>Sugerido em:</strong></p>
+            <p class="dashdate"><%=format_date(text.created_at)%></p>
+          </div>
+        </div>
+        </a>
+      </div>
+    <%end%>
+  </div>
+</div>
+</div>
+
+<div class="container">
+  <%if current_user.is_writer == true%>
+  <ul>
+    <li>Quantidade de textos postados: <span class="dashnumber"><%=@mysubmitted.size%></span></li>
+  </ul>
+  <br>
+    <div class="row">
+      <%@mysubmitted.each do |text|%>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <a href=<%="submitted_texts/#{text.id}"%>>
+          <div class="dashcard">
+            <h5 class="dashtitle"><%=text.service_title.truncate(45)%></h5>
+            <div class="dashcontent">
+              <p><%=text.service.truncate(100).html_safe%></p>
+              <p><strong>Sugestões até:</strong></p>
+              <p class="dashdate"><%=format_date(text.deadline)%></p>
+            </div>
+          </div>
+          </a>
+        </div>
+      <%end%>
+    </div>
+  <%end%>
+</div>

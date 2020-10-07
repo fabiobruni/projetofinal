@@ -6,4 +6,10 @@ class PagesController < ApplicationController
 
   def example
   end
+
+  def mypage
+    @mysubmitted = SubmittedText.all.select { |submitted| submitted.user_id == current_user.id }
+    @mytranslated = TranslatedText.all.select { |translated| translated.user_id == current_user.id}
+    @accepted = @mytranslated.select { |text| text.choosen_translat == true}
+  end
 end
