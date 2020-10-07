@@ -44,6 +44,8 @@ gem 'font-awesome-sass'
 #Form creation helper
 gem 'simple_form'
 
+gem 'letter_opener', group: :development
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
