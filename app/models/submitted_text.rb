@@ -11,9 +11,10 @@ class SubmittedText < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+
   private
 
   def send_new_text_email
-    UserMailer.new_adoption(self).deliver_now
+    UserMailer.new_translation.deliver_now
   end
 end
