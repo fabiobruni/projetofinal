@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.new_adoption.subject
   #
   def new_adoption(translated)
-
+    @user = translated.submitted_text.user
     mail(to: translated.submitted_text.user.email, subject: 'Seu texto foi adotado!')
   end
 

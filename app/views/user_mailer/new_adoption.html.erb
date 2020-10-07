@@ -1,7 +1,11 @@
-<h1>Boas noticias</h1>
+<h1>Ola, <%= @user.name %>, tudo bem com você?</h1>
+
+<h2>Temos boas notícias.</h2>
 
 <p>
   Seu texto foi adotado por um revisor. Isso signfifica
   que alguém pensa como você e quer ajudar a melhorar sua comunicação
   com o cidadão.
 </p>
+
+<h3>Para saber mais, visite <%= link_to 'brasileires.com', root_url%> </h3>
