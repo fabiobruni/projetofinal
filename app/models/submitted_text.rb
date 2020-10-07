@@ -1,4 +1,6 @@
 class SubmittedText < ApplicationRecord
+  after_create :send_new_text_email
+
   belongs_to :user
   has_many :translated_texts, dependent: :destroy
 
@@ -8,4 +10,10 @@ class SubmittedText < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  private
+
+  def send_new_text_email
+    UserMailer.new_adoption(self).deliver_now
+  end
 end
