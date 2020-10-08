@@ -12,6 +12,8 @@ class PagesController < ApplicationController
     @mytranslated = TranslatedText.all.select { |translated| translated.user_id == current_user.id}
     @myposted = @mytranslated.reject { |post| post.draft == true }
     @mydraft = @mytranslated.select { |post| post.draft == true }
-    @accepted = @mytranslated.select { |text| text.choosen_translat == true }
+    @accepted = @myposted.select { |text| text.choosen_translat == true }
+    @posted = @myposted - @accepted
+    @mytranslated = @mydraft + @posted + @accepted
   end
 end
