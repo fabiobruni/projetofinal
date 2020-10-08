@@ -142,14 +142,13 @@
 }
 
 .dashdark{
-  background-color:rgb(240,240,240);
+  // background-color:rgb(240,240,240);
   margin-top:-40px;
   padding:10px;
 
 }
 
 .dashscore{
-  box-shadow:1px 1px #323031;
   border:1px solid #d9d9d9;
   border-radius:5px;
   padding:5px;
@@ -162,11 +161,22 @@
   }
 }
 
+.draf{
+  box-shadow:1px 1px #ffe066;
+}
+
+.post{
+  box-shadow:1px 1px #00a8e8;
+}
+
+.accept{
+  box-shadow:1px 1px #54AD45;
+}
+
 .dashnumber{
   color:#0c326f;
   font-weight:800;
   font-size:20px;
-  text-shadow:1px 1px #001427;
 }
 
 
@@ -206,10 +216,12 @@
   }
   .dashtitle{
     margin:5px 1px;
+    font-size:16px;
   }
   .dashcontent{
     text-align:justify;
     padding:0px 10px;
+    font-size:12px;
   }
   .dashrevi{
     text-align:center;
@@ -222,6 +234,7 @@
       color:#14213d;
       margin:0px;
       padding:0px;
+      font-size:14px;
     }
   }
   .dashsuge{

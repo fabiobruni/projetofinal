@@ -2,20 +2,20 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="dashscore">
+      <div class="dashscore draf">
         <h6>Quantidade de rascunhos:</h6>
         <div class="dashnumber"><%=@mydraft.size%></div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="dashscore">
+      <div class="dashscore post">
         <h6>Quantidade de sugestões postadas:</h6>
         <div class="dashnumber"><%=@myposted.size%></div>
       </div>
     </div>
     <%if @accepted.size > 0%>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="dashscore">
+        <div class="dashscore accept">
           <h6>Quantidade de sugestões aceitas:</h6>
           <div class="dashnumber"><%=@accepted.size%></div>
         </div>
@@ -36,7 +36,7 @@
           <%else%>
           <div class="topsign posted">Postada</div>
           <%end%>
-          <h5 class="dashtitle"><%=text.service_title.truncate(45)%></h5>
+          <h5 class="dashtitle"><%=text.service_title.truncate(60)%></h5>
           <div class="dashcontent">
             <p><%=text.service.truncate(100).html_safe%></p>
           </div>
@@ -58,7 +58,7 @@
 
 <div class="container">
   <%if current_user.is_writer == true%>
-    <div class="dashscore">
+    <div class="dashscore post">
       <h6>Quantidade de textos postados:</h6>
         <div class="dashnumber"><%=@mysubmitted.size%></div>
     </div>
@@ -68,7 +68,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <a href=<%="submitted_texts/#{text.id}"%>>
           <div class="dashcard">
-            <h5 class="dashtitle"><%=text.service_title.truncate(45)%></h5>
+            <h5 class="dashtitle"><%=text.service_title.truncate(50)%></h5>
             <div class="dashcontent">
               <p><%=text.service.truncate(100).html_safe%></p>
               <p><strong>Sugestões até:</strong></p>
