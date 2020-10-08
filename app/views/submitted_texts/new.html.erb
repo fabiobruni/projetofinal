@@ -17,6 +17,6 @@
   <h6 class="formlabel">Mais informações:</h6>
     <%= f.input :more_info, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
   <h6 class="formlabel">Prazo:</h6>
-    <%= f.input :deadline, label: false, as: :date, html5: true%>
+    <%= f.input :deadline, input_html: { value: Date.today+7 }, label: false, as: :date, html5: true%>
     <%= f.submit "Pedir Sugestões", :class => "btn-solicitar conforto" %>
 <% end %>
