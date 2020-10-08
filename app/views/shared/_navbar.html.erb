@@ -32,7 +32,12 @@
       <% if user_signed_in? %>
         <div class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <%=image_tag 'user.png', class: 'avatar'%>
+             <% if current_user.photo.attached? %>
+              <%=cl_image_tag current_user.photo.key, class: 'avatar'%>
+             <% else %>
+              <%=image_tag 'user.png', class: 'avatar'%>
+            <% end %>
+            
             </a>
           <div id="downcase" class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'Minha Página', mypage_url, class: "dropdown-item" %>
