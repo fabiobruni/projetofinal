@@ -43,6 +43,11 @@ text-align:left;
   font-size: 24px;
 }
 
+.small{
+  margin:15px;
+  margin-top:30px;
+}
+
 .big{
   font-size:36px;
   margin:auto;
@@ -63,6 +68,14 @@ text-align:left;
   background-color: #f0efeb;
   padding:10px;
   height:100%;
+}
+
+.camptxtsimp{
+  background-color:#fff3b0;
+  padding:10px 20px;
+  margin:10px;
+  border-radius:5px;
+  text-align:justify;
 }
 
 .noalter{
@@ -137,9 +150,8 @@ text-align:left;
 }
 
 .links-revisor{
-  text-align:center
+  text-align:left;
 }
-
 
 .stars{
   font-size:30px;
