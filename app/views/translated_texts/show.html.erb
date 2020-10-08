@@ -1,8 +1,8 @@
-<h1 style="color:#264653 !important"><%=@review.service_title%></h1>
+<h1 style="color:#1b4332 !important"><%=@review.service_title%></h1>
 <br>
 <div class="container">
 <a style="text-decoration:none !important" data-toggle="collapse" href="#oQueE" role="button" aria-expanded="false" aria-controls="oQueE"><h3 class="rev-subtitle">☰  O que é?</h3></a>
-<div class="serv-parttext collapse" id="oQueE">
+<div class="rev-parttext collapse" id="oQueE">
   <%if @review.service == @original.service%>
     <div style="opacity:0.3"><%=@original.service.html_safe%></div>
   <%elsif @review.service == ""%>
@@ -14,7 +14,7 @@
 </div>
 
 <a style="text-decoration:none !important" data-toggle="collapse" href="#publico" role="button" aria-expanded="false" aria-controls="publico"><h3 class="rev-subtitle">☰  Quem pode utilizar o serviço?</h3></a>
-<div class="serv-parttext collapse" id="publico">
+<div class="rev-parttext collapse" id="publico">
  <%if @review.target_public == @original.target_public%>
     <div style="opacity:0.3"><%=@original.target_public.html_safe%></div>
   <%elsif @review.target_public == ""%>
@@ -27,7 +27,7 @@
 
 
 <a style="text-decoration:none !important" data-toggle="collapse" href="#etapas" role="button" aria-expanded="false" aria-controls="etapas"><h3 class="rev-subtitle">☰  Etapas do Serviço</h3></a>
-<div class="serv-parttext collapse" id="etapas">
+<div class="rev-parttext collapse" id="etapas">
 <%if @review.service_stages == @original.service_stages%>
     <div style="opacity:0.3"><%=@original.service_stages.html_safe%></div>
   <%elsif @review.service_stages == ""%>
@@ -39,7 +39,7 @@
 </div>
 
 <a style="text-decoration:none !important" data-toggle="collapse" href="#minfo" role="button" aria-expanded="false" aria-controls="minfo"><h3 class="rev-subtitle">☰  Outras Informações</h3></a>
-<div class="serv-parttext collapse" id="minfo">
+<div class="rev-parttext collapse" id="minfo">
 <%if @review.more_info == @original.more_info%>
     <div style="opacity:0.3"><%=@original.more_info.html_safe%></div>
   <%elsif @review.more_info == ""%>
