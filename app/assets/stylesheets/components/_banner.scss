@@ -1,6 +1,6 @@
 .bannerbra{
-  background: asset-url('banner.jpg') center center;
-  -webkit-background-size: cover;
+  background: asset-url('banner2.jpg')  center center;
+  -webkit-background-size: auto;
   background-repeat:no-repeat;
   height:250px;
   width:100%;
@@ -10,8 +10,8 @@
   h1{
     color:white;
     text-shadow: 2px 1px #472d30;
-    text-align:center;
+    text-align:left;
     padding:15px;
-    font-size:50px;
+    font-size:35px;
   }
 }

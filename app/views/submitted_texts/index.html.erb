@@ -1,9 +1,8 @@
 <div class="bannerbra">
-  <%if user_signed_in?%>
-    <h1>Olá <span style="color:white;font-weight:800"><%="#{current_user.name}"%></span>, bem vindo!</h1>
-  <%else%>
-    <h1>Olá visitante!</h1>
-  <%end%>
+    <h1><p>Mais clareza, mais cidadania.<span style="color:white;font-weight:800"></span></p>
+        <p>Simples assim.<span style="color:white;font-weight:800"></span>
+    </h1>
+
 </div>
 <%if user_signed_in? && current_user.is_writer == true%>
 <div class="linkshome">
