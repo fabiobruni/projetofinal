@@ -15,9 +15,12 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.new_translation.subject
   #
-  # def new_translation
-  #   @user = "Hi"
+  def new_translation
+    @users = User.where(is_writer: false)
+    @users.each do |user|
+      @user = user
+     mail(to: user.email, subject: 'Novo texto disponível')
 
-  #   mail to: "to@example.org"
-  # end
+   end
+  end
 end
