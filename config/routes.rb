@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
     get 'example', to: 'pages#example'
     get 'mypage', to: 'pages#mypage'
+    get 'accept', to: 'pages#accept'
+    get 'confirm', to: 'pages#confirm'
 end

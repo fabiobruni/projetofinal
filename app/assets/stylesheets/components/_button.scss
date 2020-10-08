@@ -14,6 +14,11 @@ border: 3px solid #ededed;
 box-sizing: content-box;
 }
 
+.main{
+  margin:auto;
+  text-align:center;
+}
+
 .pequeno{
   width: 100px;
 }
@@ -49,4 +54,9 @@ border: 3px solid #ededed;
 margin:0px;
 box-sizing: content-box;
 // padding:5px 10px;
+}
+
+.acbutton{
+  display:flex;
+  justify-content:center;
 }
