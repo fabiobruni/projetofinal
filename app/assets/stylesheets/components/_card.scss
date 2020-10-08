@@ -1,3 +1,22 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+
+}
+
+#card-auto {
+  height: auto;
+}
+
+#card-before {
+  color: red;
+}
+
+#card-after {
+  color: green;
+}
+
 .card{
   background-color:#F8F8F8;
   display:flex;
@@ -114,6 +133,7 @@
   background-color:#e9ecef;
   padding:10px;
   margin:5px;
+  margin-top:0px;
   border-radius:5px;
   box-shadow: 1px 1px rgb(100,100,100)
 }
@@ -122,77 +142,114 @@
   color:#0c326f;
 }
 
-.dashcard{
-  background-color:#F8F8F8;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:space-between;
+.dashdark{
+  // background-color:rgb(240,240,240);
+  margin-top:-40px;
+  padding:10px;
+
+}
+
+.dashscore{
+  border:1px solid #d9d9d9;
+  border-radius:5px;
+  padding:5px;
   text-align:center;
-  height:280px;
+  margin-top:5px;
+  h6{
+    color:#323031;
+    font-weight:700;
+    margin-bottom:1px;
+  }
+}
+
+.draf{
+  box-shadow:1px 1px #ffe066;
+}
+
+.post{
+  box-shadow:1px 1px #00a8e8;
+}
+
+.accept{
+  box-shadow:1px 1px #54AD45;
+}
+
+.dashnumber{
+  color:#0c326f;
+  font-weight:800;
+  font-size:20px;
+}
+
+
+.dashcard{
   margin:auto;
-  margin-top: 10px;
-  width:100%;
-  padding:10px 7px;
-  border:1px dotted #495057;
+  margin-top:10px;
+  background-color:#F8F8F8;
+  border:1px solid #495057;
   box-shadow:2px 2px #14213d;
-  border-radius:10px;
-  outline:none;
+  border-radius:5px;
+  height:95%;
+  width:80%;
   h5{
     color:#0c326f;
   }
   p{
-    font-size:14px;
     color:#212529;
   }
   a{
     text-decoration:none;
     color:#212529;
   }
-  .dashlink{
-    color:#14213d;
+  .topsign{
+    text-align:center;
+    font-weight:600;
+    color:#495057;
+    border-radius:5px 5px 0px 0px;
+  }
+  .draft{
+    background-color:#ffe066;
+  }
+  .posted{
+    background-color:#00a8e8;
+  }
+  .accepted{
+    background-color:#54AD45;
   }
   .dashtitle{
-    margin-top:10px;
-    margin-bottom:20px;
+    margin:5px 1px;
+    font-size:16px;
   }
-  .dashdate{
-    color:#0c326f;
-    font-weight:800;
+  .dashcontent{
+    text-align:justify;
+    padding:0px 10px;
+    font-size:12px;
+  }
+  .dashrevi{
+    text-align:center;
+    margin:0px;
+    padding:2px;
+    p{
+      margin:0px;
+    }
+    .dashlink{
+      color:#14213d;
+      margin:0px;
+      padding:0px;
+      font-size:14px;
+    }
+  }
+  .dashsuge{
+    text-align:center;
+    margin-top:15px;
+    margin-bottom:10px;
+    p{
+      margin:0px;
+    }
+    .dashdate{
+      color:#0c326f;
+      font-weight:600;
+    }
   }
 }
 
-.dashrevi, .dashsuge{
-  line-height:1;
-}
 
-.dashnumber{
-  font-size:20px;
-  color:#0c326f;
-  font-weight:800;
-}
-
-.dashdark{
-  background-color:#f5f3f4;
-  margin-top:0px;
-  padding:10px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 8px;
-
-}
-
-#card-auto {
-  height: auto;
-}
-
-#card-before {
-  color: red;
-}
-
-#card-after {
-  color: green;
-}

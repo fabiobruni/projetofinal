@@ -12,5 +12,10 @@
     <%= f.input :service_stages, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.service_stages } %>
   <h6 class="formlabel">Mais informações:</h6>
   <%= f.input :more_info, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' }, value: @submitted.more_info } %>
-  <%= f.submit "Enviar minha sugestão", :class => "btn-solicitar conforto" %>
+  <div class="rascunho">
+    <%=f.input :draft, label: false%> <div>rascunho</div>
+  </div>
+    <div class="explanation">Deixe marcado se você deseja salvar o texto como rascunho para voltar a trabalhar nele posteriormente. Ele aparecerá na sua página, mas não aparecerá como sugestão para o editor que postou o texto original.</div>
+  <br>
+    <%= f.submit "Salvar Texto", :class => "btn-solicitar conforto"%>
 <% end %>
