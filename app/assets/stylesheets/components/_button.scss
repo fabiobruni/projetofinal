@@ -12,6 +12,11 @@ text-align: center;
 color: #fff!important;
 border: 3px solid #ededed;
 box-sizing: content-box;
+  &:hover{
+    text-decoration:none;
+    color:white;
+    background-color:#2d6a4f;
+  }
 }
 
 .main{
@@ -44,7 +49,6 @@ text-decoration: none !important;
 background-color: #6a040f;
 height: 52px;
 line-height: 52px;
-// width: 180px;
 font-size: 16px;
 font-weight: 600;
 border-radius: 51px;
@@ -53,7 +57,11 @@ color: #fff!important;
 border: 3px solid #ededed;
 margin:0px;
 box-sizing: content-box;
-// padding:5px 10px;
+  &:hover{
+    text-decoration:none;
+    color:white;
+    background-color:#370617;
+  }
 }
 
 .acbutton{
