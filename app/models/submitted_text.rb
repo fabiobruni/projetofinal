@@ -15,6 +15,9 @@ class SubmittedText < ApplicationRecord
   private
 
   def send_new_text_email
-    UserMailer.new_translation.deliver_now
+    users = User.where(is_writer: false)
+    users.each do |user|
+      UserMailer.new_translation(user.id).deliver_now
+    end
   end
 end

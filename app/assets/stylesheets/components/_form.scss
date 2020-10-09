@@ -92,6 +92,10 @@
 .boxform{
   width:80%;
   margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
 }
 
 .linksbox{
@@ -100,5 +104,10 @@
   background-color:rgb(200,200,200);
   border-radius:5px;
   width:70%;
+  margin:auto;
+}
+
+.centered{
+  text-align:center;
   margin:auto;
 }

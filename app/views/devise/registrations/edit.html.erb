@@ -1,35 +1,66 @@
-<h2>Editar <%= resource_name.to_s.humanize %></h2>
+<br>
+<h2 class="formtitle">Atualizar meus dados</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
 
+    <div class="boxform">
+        <div class="centered">
+    <div class="formlabel centered">Seu e-mail</div>
+    <%= f.input :email, required: true, autofocus: true, label:false,  input_html: { class: 'formcampbig' } %>
+  </div>
+    <div class="row">
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Aguardando confirmação de <%= resource.unconfirmed_email %></p>
     <% end %>
-
+   <div class="col-xs-12 col-md-6">
+<div class="formlabel centered">Sua nova senha</div>
     <%= f.input :password,
                 hint: "deixe em branco se você não deseja alterar sua senha",
                 required: false,
-                input_html: { autocomplete: "new-password" } %>
+                label:false,
+                input_html: { autocomplete: "new-password", class: 'formcampbig' } %>
+</div>
+   <div class="col-xs-12 col-md-6">
+<div class="formlabel centered">Confirme sua nova senha</div>
     <%= f.input :password_confirmation,
                 required: false,
-                input_html: { autocomplete: "new-password" } %>
+                label:false,
+                input_html: { autocomplete: "new-password", class: 'formcampbig' } %>
+     </div>
+   </div>
+   <div class="centered">
+  <div class="formlabel centered">Digite sua senha atual</div>
+  <div style="margin-left:85px !important">
     <%= f.input :current_password,
                 hint: "nós precisamos que você digite sua senha atual para confirmar as alterações.",
                 required: true,
-                input_html: { autocomplete: "current-password" } %>
+                label:false,
+                input_html: { autocomplete: "current-password", class: 'formcampbig' } %>
+</div>
+</div>
+<br>
+                <div style="margin-left:15px" class=" photobtn">
+                  <label class="src">
+                    Carregue sua foto
+                    <span style="display:none;">
+      <%= f.input_field :photo, as: :file,
+                      required: false%>
+                    </span>
+                  </label>
+                </div>
+</div>
   </div>
-
+<br>
+<br>
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <div style="text-align:center">
+    <%= f.button :submit, "Atualizar minha conta", class: 'btn-solicitar conforto' %>
   </div>
+</div>
 <% end %>
-
-<h3>Cancelar minha conta</h3>
-
-<p>Não está feliz com o nosso aplicativo? <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Você tem certeza?" }, method: :delete %></p>
-
-<%= link_to "Voltar", :back %>
+<br>
+<p style="text-align:center"><%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Você tem certeza?" }, method: :delete %></p>
+<p style="text-align:center"><%= link_to "Voltar", :back %></p>
