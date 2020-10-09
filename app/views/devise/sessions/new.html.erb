@@ -19,6 +19,7 @@
                 input_html: { autocomplete: "current-password", class: 'formcampbig'  } %>
     <div class="remember"><%= f.input :remember_me, label: false, as: :boolean if devise_mapping.rememberable? %> Lembre de mim</div>
   </div>
+  <br>
 <div class="centeredbtn">
   <div class="form-actions">
     <%= f.button :submit, "Log in", class: 'btn-solicitar pequeno conforto'%>

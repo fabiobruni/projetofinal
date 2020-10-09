@@ -1,12 +1,21 @@
 <%= javascript_include_tag Ckeditor.cdn_url%>
-<h1>Texto a ser traduzido</h1>
-
+<br>
+<h1 class="formtitle">Texto a ser traduzido</h1>
+<div class="container">
 <%= simple_form_for @submitted do |f| %>
-  <h6 class="formlabel">Link do serviço no gov.br:</h6>
-    <%= f.input :url, label: false%>
-  <h6 class="formlabel">Instituição:</h6>
-    <%= f.input :institution, label: false%>
-  <h6 class="formlabel">Nome do serviço:</h6>
+    <div class="boxform">
+  <div class="row">
+<div class="col-xs-12 col-md-6">
+  <h6 class="formlabel fc">Instituição:</h6>
+    <%= f.input :institution, label: false, input_html: {class: 'formcampbig'}%>
+</div>
+<div class="col-xs-12 col-md-6">
+  <h6 class="formlabel fc">Link do serviço no gov.br:</h6>
+    <%= f.input :url, label: false, input_html: {class: 'formcampbig'}%>
+</div>
+</div>
+</div>
+  <h6 class="formlabel fc">Nome do serviço:</h6>
     <%= f.input :service_title, label: false%>
   <h6 class="formlabel">O que é?</h6>
     <%= f.input :service, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }%>
@@ -17,6 +26,7 @@
   <h6 class="formlabel">Mais informações:</h6>
     <%= f.input :more_info, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
   <h6 class="formlabel">Prazo:</h6>
-    <%= f.input :deadline, input_html: { value: Date.today+7 }, label: false, as: :date, html5: true%>
+    <%= f.input :deadline, input_html: { value: Date.today+7 }, label: false, as: :date, html5: true, input_html: {class: 'formcampmd'}%>
     <%= f.submit "Pedir Sugestões", :class => "btn-solicitar conforto" %>
 <% end %>
+</div>
