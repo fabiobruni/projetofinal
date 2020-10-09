@@ -50,7 +50,7 @@ class SubmittedTextsController < ApplicationController
   # DELETE /submitted_texts/1
   def destroy
     @submitted.destroy
-    redirect_to submitted_texts_url, notice: 'Pronto, seu texto foi apagado.'
+    redirect_to submitted_texts_path, notice: 'Pronto, seu texto foi apagado.'
   end
 
   private
