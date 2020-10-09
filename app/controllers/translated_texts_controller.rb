@@ -16,7 +16,7 @@ class TranslatedTextsController < ApplicationController
     @translated.submitted_text = @submitted
     @translated.user = current_user
     if @translated.save
-      redirect_to edit_submitted_text_translated_text_path(@submitted, @translated), notice: 'Rascunho salvo com sucesso.'
+      redirect_to edit_submitted_text_translated_text_path(@submitted, @translated), notice: 'Texto salvo com sucesso.'
     else
       render :new
     end

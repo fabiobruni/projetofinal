@@ -1,5 +1,6 @@
 <%= javascript_include_tag Ckeditor.cdn_url%>
-<h1 style="margin-bottom:0px"><%= @review.service_title%></h1>
+<br>
+<h1 class="formtitle"><%= @review.service_title%></h1>
 
 <%=simple_form_for [@original, @review] do |f| %>
 <h5 class="formlabel">O que é?</h5>
@@ -11,7 +12,7 @@
 <h5 class="formlabel">Outras Informações</h5>
   <%= f.input :more_info, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, value: @review.more_info.html_safe%>
  <div class="rascunho">
-    <%=f.input :draft, label: false%> <div>rascunho</div>
+    <%=f.input :draft, label: false%> <div class="remember">rascunho</div>
   </div>
     <div class="explanation">Deixe marcado se você deseja salvar o texto como rascunho para voltar a trabalhar nele posteriormente. Ele aparecerá na sua página, mas não aparecerá como sugestão para o editor que postou o texto original.</div>
   <br>
