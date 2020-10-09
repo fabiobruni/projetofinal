@@ -1,41 +1,64 @@
-<h2>Sign up</h2>
+<br>
+<h2 class="formtitle">Cadastro de novo usuário</h2>
 
 <div class="container">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
+      <div class='row'>
+        <div class="col-xs-12 col-md-6">
+      <div class="formlabel">Qual é o seu nome?</div>
       <%= f.input :name,
               required: true,
+              label:false,
               autofocus: true,
-              input_html: { autocomplete: "name" }%>
+              input_html: { autocomplete: "name", class: 'formcampbig' }%>
       <div class="writer-camp">
-      <%= f.input_field :is_writer%><div class="labelwc">Sou um editor de serviços no gov.br</div>
+      <%= f.input_field :is_writer, class: "radio-camp"%><div class="labelwc">Sou um editor de serviços no Portal gov.br</div>
       </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+       <div class="formlabel">Qual é o seu e-mail?</div>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" }%>
+                  label: false,
+                  input_html: { autocomplete: "email", class: 'formcampbig' }%>
+    </div>
+    <div class="col-xs-12 col-md-6">
+       <div class="formlabel">Escolha uma senha:</div>
       <%= f.input :password,
                   required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  label: false,
+                  hint: ("#{@minimum_password_length} caracteres no mínimo." if @minimum_password_length),
+                  input_html: { autocomplete: "new-password", class: 'formcampbig' } %>
+      </div>
+      <div class="col-xs-12 col-md-6">
+      <div class="formlabel">Confirme a senha escolhida por favor:</div>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
-                  <label class="photobtn">
-                    Upload sua foto
+                  label: false,
+                  input_html: { autocomplete: "new-password", class: 'formcampbig' } %>
+      </div>
+      <div class="col-12">
+        <div class=" photobtn">
+                  <label class="src">
+                    Carregue sua foto
                     <span style="display:none;">
       <%= f.input :photo, as: :file,
                       required: true%>
                     </span>
                   </label>
                 </div>
-
+      </div>
+                </div>
+  </div>
+<br>
     <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Cadastrar", class: 'btn-solicitar conforto lado' %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
+  <br>
+  <p style="text-align:center">Já é cadastrado? Então <%= render "devise/shared/links" %></p>
 </div>

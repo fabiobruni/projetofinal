@@ -1,5 +1,14 @@
 .avatar {
+  width: 45px;
+  height:45px;
+  border-radius: 50%;
+  border:1px solid #f0efeb;
+  margin:0px !important;
+}
+
+.avatar-lite {
   width: 35px;
+  height:35px;
   border-radius: 50%;
   border:1px solid #f0efeb;
 }

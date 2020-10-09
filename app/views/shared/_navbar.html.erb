@@ -12,44 +12,38 @@
        <span style="color:#2864AE">ê</span>
        <span style="color:#FABD30">s</span></a>
       </div>
-      <div class="search">
-        <div>
-          <%= form_tag submitted_texts_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control srccamp",
-          placeholder: "Encontre um texto"
-        %>
-      </div>
-      <div>
-        <%= submit_tag "Buscar", class: "btn btn-primary src" %>
-      <% end %>
-    </div>
-      </div>
-      <div class="nav-item">
-        <%= link_to "Veja como funciona", example_path %>
-      </div>
+      <div class="navlinks">
+      <a href=<%=example_path%>><div class="navlink">
+        <div class="icomofunciona"><i class="fas fa-map-signs"></i></div>
+        <div class="lcomofunciona">Veja como funciona</div>
+      </div></a>
       <% if user_signed_in? %>
         <div class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <% if current_user.photo.attached? %>
               <%=cl_image_tag current_user.photo.key, class: 'avatar'%>
              <% else %>
-              <%=image_tag 'user.png', class: 'avatar'%>
+              <%=image_tag 'user.png', class: 'avatar-lite'%>
             <% end %>
-            
+
             </a>
           <div id="downcase" class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'Minha Página', mypage_url, class: "dropdown-item" %>
               <%if user_signed_in? && current_user.is_writer == true%>
                 <%= link_to 'Enviar um texto', new_submitted_text_path, class: "dropdown-item" %>
               <%end%>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </div>
       <% else %>
-        <div class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </div>
+        <a href=<%=new_user_registration_path%>><div class="navlink">
+          <div class="icadast"><i class="fas fa-user-plus"></i></div>
+          <div class="lcadast">Cadastre-se</div>
+        </div></a>
+        <a href=<%=new_user_session_path%>><div class="navlink">
+          <div class="ientrar"><i class="fas fa-door-open"></i></div>
+          <div class="lentrar">Entrar</div>
+        </div></a>
       <% end %>
   </div>
+</div>

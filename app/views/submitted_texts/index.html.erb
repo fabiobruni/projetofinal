@@ -1,9 +1,29 @@
 <div class="bannerbra">
+<h1 class="fst">Mais clareza, mais cidadania.</h1>
+<h1 class="scd">Simples assim.</h1>
+</div>
+<div class="pseudobar">
+<div class="greetings">
   <%if user_signed_in?%>
-    <h1>Olá <span style="color:white;font-weight:800"><%="#{current_user.name}"%></span>, bem vindo!</h1>
+    Olá <span style="font-weight:800"><%="#{current_user.name.truncate_words(1).gsub('.','')}"%></span>, bem vindo!
   <%else%>
-    <h1>Olá visitante!</h1>
+    Olá visitante!
   <%end%>
+</div>
+        <div class="search">
+        <div>
+          <%= form_tag submitted_texts_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control srccamp",
+          placeholder: "Encontre um texto"
+        %>
+      </div>
+      <div>
+        <%= submit_tag "🔍", class: 'srcbtn'%>
+      <% end %>
+    </div>
+      </div>
 </div>
 <%if user_signed_in? && current_user.is_writer == true%>
 <div class="linkshome">
@@ -11,7 +31,6 @@
 </div>
 <%end%>
 <div class="container">
-  <h1>Textos postados</h1>
   <div class="row">
     <div class="col-sm-10 offset-sm-1">
       <div id="submitted">
