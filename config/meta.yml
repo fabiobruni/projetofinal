@@ -1,0 +1,5 @@
+meta_product_name: "Brasileirês"
+meta_title: "Brasileirês - Mais clareza, mais cidadania. Simples assim."
+meta_description: "Uma plataforma para auxiliar os editores de serviço do governo federal a melhorar suas comunicação com o usuário."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@Brasileirs1"   # required for Twitter Cards
