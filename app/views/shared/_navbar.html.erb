@@ -29,6 +29,7 @@
             </a>
           <div id="downcase" class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'Minha Página', mypage_url, class: "dropdown-item" %>
+              <%= link_to 'Meus dados', edit_user_registration_path, class: "dropdown-item" %>
               <%if user_signed_in? && current_user.is_writer == true%>
                 <%= link_to 'Enviar um texto', new_submitted_text_path, class: "dropdown-item" %>
               <%end%>
