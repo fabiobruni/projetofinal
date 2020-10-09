@@ -1,24 +1,37 @@
-<h1>Acesse sua conta</h1>
-
+<h1 class="formtitle">Acesse sua conta</h1>
+<br>
+<div class="container">
+  <div class="boxform">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
-    <h3 class="formlabel">seu e-mail:</h3>
+    <h3 class="formlabel">Informe seu e-mail:</h3>
     <%= f.input :email,
                 required: false,
                 autofocus: true,
                 label: false,
-                input_html: { autocomplete: "email" } %>
-    <h3 class="formlabel">seu password:</h3>
+                input_html: { autocomplete: "email", class: 'formcampbig' } %>
+    <h3 class="formlabel">Informe sua senha:</h3>
     <%= f.input :password,
                 required: false,
                 label: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                input_html: { autocomplete: "current-password", class: 'formcampbig'  } %>
+    <div class="remember"><%= f.input :remember_me, label: false, as: :boolean if devise_mapping.rememberable? %> Lembre de mim</div>
   </div>
-
+<div class="centeredbtn">
   <div class="form-actions">
-    <%= f.button :submit, "Log in", class: 'btn-solicitar pequeno conforto' %>
+    <%= f.button :submit, "Log in", class: 'btn-solicitar pequeno conforto'%>
   </div>
+</div>
 <% end %>
-
+</div>
+<div class="col-xs-12 col-md-6">
+  <div class="linksbox">
+  <div>Não é cadastrado ainda?</div>
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</div>
+</div>

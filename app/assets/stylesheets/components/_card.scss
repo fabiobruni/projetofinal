@@ -130,6 +130,21 @@
   left:25px;
 }
 
+.centered{
+  text-align:center;
+}
+
+.closer{
+  margin-left:50px;
+  margin-top:-20px;
+}
+
+.tfld{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
 .eval{
   background-color:#e9ecef;
   padding:10px;
